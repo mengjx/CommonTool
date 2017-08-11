@@ -1,0 +1,5036 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CtUser.Service</name>
+    </assembly>
+    <members>
+        <member name="T:CtUser.Service.BaseService">
+            <summary>
+            Service接口基类
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.BaseService.CredenceSoapHeaderValue">
+            <summary>
+            验证头信息
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Common.Utils">
+            <summary>
+            帮助类
+            </summary>
+        </member>
+        <member name="M:CtUser.Service.Common.Utils.DecodeBase64(System.String,System.String)">
+            <summary>
+            Base64解码
+            </summary>
+            <param name="str"></param>
+            <param name="encode">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.Common.Utils.EncodeBase64(System.String,System.String)">
+            <summary>
+            Base64编码
+            </summary>
+            <param name="str"></param>
+            <param name="encode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.Common.Utils.IsMobile(System.String)">
+            <summary>
+            判断是否为手机号
+            </summary>
+            <param name="mobile">手机号</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.Common.Utils.IsEmail(System.String)">
+            <summary>
+            是否为合法的Email地址
+            </summary>
+            <param name="email">待验证Email</param>
+            <returns>是否验证通过</returns>
+        </member>
+        <member name="T:CtUser.Service.CredenceSoapHeader">
+            <summary>
+            调用方身份验证信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.CredenceSoapHeader.PlatformID">
+            <summary>
+            平台ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.CredenceSoapHeader.SignDate">
+            <summary>
+            签名校验日期
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.CredenceSoapHeader.Credential">
+            <summary>
+            凭据
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.CredenceSoapHeader.AnyAttr">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.LastLogonHallInfo">
+            <summary>
+            用户最后登录大厅日志信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LastLogonHallInfo.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LastLogonHallInfo.LogonGroup">
+            <summary>
+            登录大厅组ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LastLogonHallInfo.LogonIP">
+            <summary>
+            最后登录IP
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LastLogonHallInfo.LogonDate">
+            <summary>
+            最后登录日期
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LastLogonHallInfo.LogonTime">
+            <summary>
+            最后登录时间
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LastLogonHallInfo.LogonDays">
+            <summary>
+            登录天数
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LastLogonHallInfo.LogonTimes">
+            <summary>
+            登录次数
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.LastLogonInfo">
+            <summary>
+            用户最后登录信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LastLogonInfo.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LastLogonInfo.AppID">
+            <summary>
+            应用ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LastLogonInfo.LastLogonIP">
+            <summary>
+            最后登录IP
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LastLogonInfo.LastLogonDate">
+            <summary>
+            最后登录日期
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LastLogonInfo.LastLogonTime">
+            <summary>
+            最后登录时间
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LastLogonInfo.LogonDays">
+            <summary>
+            登录天数
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LastLogonInfo.LogonTimes">
+            <summary>
+            登录次数
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.LoginTokenInfo">
+            <summary>
+            登录令牌实体
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LoginTokenInfo.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LoginTokenInfo.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LoginTokenInfo.LoginToken">
+            <summary>
+            令牌
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LoginTokenInfo.ExpiredTimeStamp">
+            <summary>
+            令牌过期时间
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LoginTokenInfo.WifiID">
+            <summary>
+            MAC地址
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LoginTokenInfo.SystemID">
+            <summary>
+            安卓ID，iOS固定
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LoginTokenInfo.ImeiID">
+            <summary>
+            手机识别号
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LoginTokenInfo.ImsiID">
+            <summary>
+            国际移动用户识别码
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.LoginTokenInfo.SimSerialNO">
+            <summary>
+            SIM卡序列号，可为空
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.MobileLoginVerifyCodeInfo">
+            <summary>
+            手机短信登录验证码实体
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MobileLoginVerifyCodeInfo.Mobile">
+            <summary>
+            登录手机号
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MobileLoginVerifyCodeInfo.RndCode">
+            <summary>
+            短信验证码
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MobileLoginVerifyCodeInfo.LastSendTime">
+            <summary>
+            最后发送短信验证码时间戳
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MobileLoginVerifyCodeInfo.NotVerifiedTimes">
+            <summary>
+            未验证通过的次数
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MobileLoginVerifyCodeInfo.TodaySendTimes">
+            <summary>
+            当天发送次数
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MobileLoginVerifyCodeInfo.Status">
+            <summary>
+            验证状态 0待验证 1已验证过
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.MobileOneKeyHardInfo">
+            <summary>
+            手机端硬件信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MobileOneKeyHardInfo.WifiID">
+            <summary>
+            MAC地址，去掉冒号，必须31个字节，低于时补0；
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MobileOneKeyHardInfo.SystemID">
+            <summary>
+            安卓ID，iOS固定
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MobileOneKeyHardInfo.ImeiID">
+            <summary>
+            手机识别号
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MobileOneKeyHardInfo.ImsiID">
+            <summary>
+            国际移动用户识别码
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MobileOneKeyHardInfo.SimSerialNO">
+            <summary>
+            SIM卡序列号，可为空
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.RegResultInfo">
+            <summary>
+            注册结果信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.RegResultInfo.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.RegResultInfo.UserName">
+            <summary>
+            用户名@CT
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.RegResultInfo.Password">
+            <summary>
+            注册生成密码
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.SecurePwdVerifiedInfo">
+            <summary>
+            保护密码验证记录
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.SecurePwdVerifiedInfo.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.SecurePwdVerifiedInfo.UserIP">
+            <summary>
+            用户IP
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.SecurePwdVerifiedInfo.VerifiedTime">
+            <summary>
+            通过校验时间戳
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.SendFindLogonPwdEmailInfo">
+            <summary>
+            自助发送找回密码邮件
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.SendFindLogonPwdEmailInfo.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.SendFindLogonPwdEmailInfo.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.SendFindLogonPwdEmailInfo.UserIP">
+            <summary>
+            用户IP
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.ThirdOAuthInfo">
+            <summary>
+            第三方帐号信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.ThirdOAuthInfo.OpenID">
+            <summary>
+            第三方帐号的标识ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.ThirdOAuthInfo.UserType">
+            <summary>
+            第三方帐号类型
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.ThirdOAuthInfo.AccessToken">
+            <summary>
+            令牌
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.ThirdOAuthInfo.TokenExpires">
+            <summary>
+            令牌有效期
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.ThirdOAuthInfo.RefreshToken">
+            <summary>
+            刷新令牌
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.ThirdOAuthInfo.PartnerAppID">
+            <summary>
+            合作应用ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.ThirdOAuthInfo.UnionID">
+            <summary>
+            联合ID
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.ThirdOAuthInfo2">
+            <summary>
+            第三方帐号信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.ThirdOAuthInfo2.OpenID">
+            <summary>
+            第三方帐号的标识ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.ThirdOAuthInfo2.UserType">
+            <summary>
+            第三方帐号类型
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.ThirdOAuthInfo2.AccessToken">
+            <summary>
+            令牌
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.ThirdOAuthInfo2.TokenExpires">
+            <summary>
+            令牌有效期
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.ThirdOAuthInfo2.RefreshToken">
+            <summary>
+            刷新令牌
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.ThirdOAuthInfo2.PartnerAppID">
+            <summary>
+            合作应用ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.ThirdOAuthInfo2.UnionID">
+            <summary>
+            联合ID
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.ThirdUserAccountInfo">
+            <summary>
+            第三方帐号登录信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.ThirdUserAccountInfo.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.ThirdUserAccountInfo2">
+            <summary>
+            第三方帐号登录信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.ThirdUserAccountInfo2.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.ThirdUserTypeConfigInfo">
+            <summary>
+            第三方用户类型配置实体
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.ThirdUserTypeConfigInfo.TypeID">
+            <summary>
+            类型ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.ThirdUserTypeConfigInfo.TypeName">
+            <summary>
+            类型名称
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.ThirdUserTypeConfigInfo.Prefix">
+            <summary>
+            用户名前缀
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserAddressInfo.ID">
+            <summary>
+            自增ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserAddressInfo.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserAddressInfo.HandPhone">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserAddressInfo.TrueName">
+            <summary>
+            真实姓名
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserAddressInfo.Province">
+            <summary>
+            省
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserAddressInfo.City">
+            <summary>
+            市
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserAddressInfo.Country">
+            <summary>
+            县区
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserAddressInfo.Address">
+            <summary>
+            详细地址
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserAddressInfo.IsDefault">
+            <summary>
+            是否是默认地址
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserAddressInfo.UpdateTime">
+            <summary>
+            更新日期
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.UserModifyInfo">
+            <summary>
+            用户(可修改的)个人资料
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserModifyInfo.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserModifyInfo.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserModifyInfo.BirthDay">
+            <summary>
+            生日
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserModifyInfo.AddressArea">
+            <summary>
+            所在地区
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserModifyInfo.Address">
+            <summary>
+            所在地详细信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserModifyInfo.ImType">
+            <summary>
+            即时通讯工具类型
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserModifyInfo.ImAddr">
+            <summary>
+            即时通讯工具帐号
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.BirthDay">
+            <summary>
+            生日
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.BirthDay.Year">
+            <summary>
+            年
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.BirthDay.Month">
+            <summary>
+            月
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.BirthDay.Day">
+            <summary>
+            日
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.Area">
+            <summary>
+            地区
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.Area.Province">
+            <summary>
+            省份ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.Area.City">
+            <summary>
+            城市
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.Area.District">
+            <summary>
+            县/区
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.UserStateInfo">
+            <summary>
+            用户相关状态信息信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserStateInfo.IsBindMobile">
+            <summary>
+            是否绑定了手机
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserStateInfo.IsBindEmail">
+            <summary>
+            是否绑定了邮箱
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserStateInfo.IsOpenMobileLogin">
+            <summary>
+            是否开通了手机登录
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserStateInfo.HasSecurePwd">
+            <summary>
+            是否有保护密码
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.NamespaceDoc">
+            <summary>
+            提供接口中使用到的相关实体类
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.FriendInfo">
+            <summary>
+            好友信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.FriendInfo.ID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.FriendInfo.Name">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.FriendInfo.GroupID">
+            <summary>
+            下载组ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.FriendInfo.GroupTitle">
+            <summary>
+            下载组标题
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.GameUserInfo">
+            <summary>
+            用户游戏相关信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.GameUserInfo.ID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.GameUserInfo.Name">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.GameUserInfo.Type">
+            <summary>
+            用户类型(UserType)
+            </summary>
+            <see cref="T:CtUser.Service.UserType"/>
+        </member>
+        <member name="P:CtUser.Service.Entity.GameUserInfo.SubType">
+            <summary>
+            用户二级类型
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.GameUserInfo.Status">
+            <summary>
+            用户状态
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.GameUserInfo.Deposit">
+            <summary>
+            用户银子
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.GameUserInfo.OnlineTime">
+            <summary>
+            在线时长
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.GameUserInfo.LastLogonDay">
+            <summary>
+            最后登录日期
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.GameUserInfo.LastLogonTime">
+            <summary>
+            最后登录时间
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.GameUserInfo.LastLogonIP">
+            <summary>
+            最后登录IP
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.GameUserInfo.IsBinding">
+            <summary>
+            是否已绑定硬件信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.GameUserInfo.IsPwdChanged">
+            <summary>
+            密码是否已修改
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.IDCardTrueName">
+            <summary>
+            实名认证信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.IDCardTrueName.IDCard">
+            <summary>
+            身份证号
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.IDCardTrueName.TrueName">
+            <summary>
+            真实姓名
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.MemberInfo">
+            <summary>
+            会员信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MemberInfo.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MemberInfo.MemberType">
+            <summary>
+            会员类型
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MemberInfo.MemberAdds">
+            <summary>
+            会员充值类型
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MemberInfo.MemberBegin">
+            <summary>
+            会员开始日期
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MemberInfo.MemberEnd">
+            <summary>
+            会员结束日期
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MemberInfo.ScoreClearProps">
+            <summary>
+            负分清零道具数量
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MemberInfo.ScoreJumpProps">
+            <summary>
+            积分跃龙门道具数量
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MemberInfo.BreakOffClearProps">
+            <summary>
+            逃跑率清零道具数量
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MemberInfo.DiscountClothingProps">
+            <summary>
+            打折购买衣服的道具数量
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MemberInfo.ProcessFlag">
+            <summary>
+            过期处理标记(0未处理,1已处理)
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.MobileHardInfo">
+            <summary>
+            通过手机注册的账号手机系统与硬件信息(手机游戏)
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MobileHardInfo.ID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MobileHardInfo.GameID">
+            <summary>
+            游戏ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MobileHardInfo.SystemID">
+            <summary>
+            手机系统ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.MobileHardInfo.ImeiID">
+            <summary>
+            手机识别标识
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.UserClothingInfo">
+            <summary>
+            服装信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserClothingInfo.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserClothingInfo.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserClothingInfo.ClothingID">
+            <summary>
+            服装ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserClothingInfo.ClothingName">
+            <summary>
+            服装名
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserClothingInfo.Price">
+            <summary>
+            价格
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserClothingInfo.Storage">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserClothingInfo.PurchaseDate">
+            <summary>
+            购买日期
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserClothingInfo.GiverID">
+            <summary>
+            谁赠送的
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserClothingInfo.GiverName">
+            <summary>
+            赠送者用户名
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserClothingInfo.GiveDate">
+            <summary>
+            赠送日期
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.UserInfo">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.ID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.Name">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.Type">
+            <summary>
+            用户类型
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.Password">
+            <summary>
+            用户密码
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.Status">
+            <summary>
+            用户状态
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.ForbidExpiration">
+            <summary>
+            帐号被禁用的截止时间(时间戳) 0表是永久禁用 >0则表示禁用截止时间。
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.NickName">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.NickSex">
+            <summary>
+            虚拟性别
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.Portrait">
+            <summary>
+            头像
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.ClothingID">
+            <summary>
+            服装
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.RegisterGroup">
+            <summary>
+            注册组，默认都是1
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.MailAddr">
+            <summary>
+            邮箱地址
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.HandPhone">
+            <summary>
+            手机
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.TrueName">
+            <summary>
+            真实姓名
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.IDCard">
+            <summary>
+            身份证号
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.Birthday">
+            <summary>
+            生日
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.Business">
+            <summary>
+            行业
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.Profession">
+            <summary>
+            ??专业
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.Degree">
+            <summary>
+            ??学位
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.Country">
+            <summary>
+            国家
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.Province">
+            <summary>
+            省份
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.City">
+            <summary>
+            城市
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.District">
+            <summary>
+            县/区
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.Address">
+            <summary>
+            详细地址
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.Postcode">
+            <summary>
+            邮编
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.Telephone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.Organization">
+            <summary>
+            组织
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.CreateDay">
+            <summary>
+            注册日期
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.CreateTime">
+            <summary>
+            注册时间
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.DownloadGroup">
+            <summary>
+            下载大厅
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.RegIP">
+            <summary>
+            注册IP
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.RegFrom">
+            <summary>
+            注册来源
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.OldPwd">
+            <summary>
+            原密码
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.SecurePwd">
+            <summary>
+            保险箱密码（如果有则用*号替代）
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.LastLogonDay">
+            <summary>
+            最后登录日期
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.IMType">
+            <summary>
+            即时通讯工具类型
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.IMAddr">
+            <summary>
+            即时通讯工具地址
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.NativeProvince">
+            <summary>
+            省份
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.NativeCity">
+            <summary>
+            城市
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.NativeDistrict">
+            <summary>
+            县/区
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.UserInfo.AnnualIncome">
+            <summary>
+            年收入
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Entity.VerifiedInfo">
+            <summary>
+            用户被校验的信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.VerifiedInfo.IsVerifiedMobile">
+            <summary>
+            手机号是否被校验
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.VerifiedInfo.IsVerifiedEmail">
+            <summary>
+            Email是否被校验
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.VerifiedInfo.IsVerifiedIDCard">
+            <summary>
+            身份证第一面是否被验证
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Entity.VerifiedInfo.IsVerifiedIDCard2">
+            <summary>
+            身份证第二面是否被验证
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.EmailVerifyCodeType">
+            <summary>
+            Email验证类型
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.EmailVerifyCodeType.UNBIND_HARDID">
+            <summary>
+            大厅解绑硬件信息
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.EmailVerifyCodeType.RESET_LOGON_PWD">
+            <summary>
+            重置登录密码
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.EmailVerifyCodeType.UNBIND_MOBILE">
+            <summary>
+            取消帐号已绑定的手机
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.EmailVerifyCodeType.BIND_MOBILE">
+            <summary>
+            绑定手机号
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.EmailVerifyCodeType.SET_SECUREPWD">
+            <summary>
+            设置安全密码
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.EmailVerifyCodeType.SET_IDCARD_TRUENAME">
+            <summary>
+            设置实名认证信息
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.EmailVerifyCodeType.ACCOUNT_ACTIVE">
+            <summary>
+            帐号激活
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.EmailVerifyCodeType.BIND_EMAIL">
+            <summary>
+            绑定Email
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.EmailVerifyCodeType.FIND_PASSWORD">
+            <summary>
+            找回密码
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.EmailVerifyCodeType.CONFIRM_BIND_EMAIL">
+            <summary>
+            确认绑定Email
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.EmailVerifyCodeType.OPEN_EMAIL_LOGIN">
+            <summary>
+            开通Email登录
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.EmailVerifyCodeType.CANCEL_EMAIL_LOGIN">
+            <summary>
+            取消Email登录
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.EmailVerifyCodeType.OPEN_ACCOUNT_SAFEGUARD">
+            <summary>
+            开启账号安全保护
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.MobileBindSupportType">
+            <summary>
+            支持手机绑定的类型
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileBindSupportType.LogonPwd">
+            <summary>
+            登录密码
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileBindSupportType.SecurePwd">
+            <summary>
+            保护密码
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileBindSupportType.MobileOneKeyRegInfo">
+            <summary>
+            手机一键注册信息
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileBindSupportType.VerifiedEmail">
+            <summary>
+            已验证的邮箱
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileBindSupportType.EnabledUnVerify">
+            <summary>
+            免验证（第三方账号）
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.MobileVerifyCodeType">
+            <summary>
+            手机校验功能类型
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileVerifyCodeType.UNBIND_HARDID">
+            <summary>
+            大厅解绑硬件信息
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileVerifyCodeType.RESET_LOGON_PWD">
+            <summary>
+            重置登录密码
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileVerifyCodeType.UNBIND_MOBILE">
+            <summary>
+            取消帐号已绑定的手机
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileVerifyCodeType.BIND_MOBILE">
+            <summary>
+            绑定手机号
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileVerifyCodeType.CONFIRM_BIND_MOBILE">
+            <summary>
+            确认校验手机绑定，对老帐号已填写手机号，但未验证的情况
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileVerifyCodeType.SET_SECUREPWD">
+            <summary>
+            设置安全密码
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileVerifyCodeType.SET_IDCARD_TRUENAME">
+            <summary>
+            设置实名认证信息
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileVerifyCodeType.ACCOUNT_ACTIVE">
+            <summary>
+            帐号激活
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileVerifyCodeType.BIND_EMAIL">
+            <summary>
+            绑定Email
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileVerifyCodeType.OPEN_SMS_LOGIN">
+            <summary>
+            开通手机短信登录
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileVerifyCodeType.FIND_PASSWORD">
+            <summary>
+            找回密码
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileVerifyCodeType.VERIFY_BIND_MOBILE">
+            <summary>
+            验证已绑定的手机号
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileVerifyCodeType.OPEN_MOBILE_LOGIN">
+            <summary>
+            开通手机登录
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileVerifyCodeType.CANCEL_MOBILE_LOGIN">
+            <summary>
+            取消手机登录
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileVerifyCodeType.VERIFY_MOBILE_GAME_LOGIN">
+            <summary>
+            手游登录验证
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileVerifyCodeType.OPEN_ACCOUNT_SAFEGUARD">
+            <summary>
+            开启账号安全保护
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileVerifyCodeType.CLOSE_ACCOUNT_SAFEGUARD">
+            <summary>
+            关闭账号安全保护
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.MobileVerifyCodeType.VERIFY_ACCOUNT_SAFEGUARD">
+            <summary>
+            验证安全保护
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.OSNameEnum">
+            <summary>
+            手机操作系统名称枚举
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.OSNameEnum.ANDROID">
+            <summary>
+            Android系统
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.OSNameEnum.IOS">
+            <summary>
+            IOS系统
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.StateItemEnum">
+            <summary>
+            用户状态项枚举
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.StateItemEnum.IsBindMobile">
+            <summary>
+            是否绑定手机
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.StateItemEnum.IsBindEmail">
+            <summary>
+            是否绑定邮箱
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.StateItemEnum.IsOpenMobileLogin">
+            <summary>
+            是否开通手机号登录
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.StateItemEnum.HasSecurePwd">
+            <summary>
+            是否有保护密码
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.ThirdUserType">
+            <summary>
+            第三方帐号用户类型
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.ThirdUserType.QQ">
+            <summary>
+            QQ
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.ThirdUserType.WEIBO">
+            <summary>
+            微博
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.ThirdUserType.QIHU">
+            <summary>
+            360
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.ThirdUserType.BAIDU">
+            <summary>
+            百度
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.ThirdUserType.M91">
+            <summary>
+            91手机助手 
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.ThirdUserType.XIAOMI">
+            <summary>
+            小米用户
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.ThirdUserType.DUOKU">
+            <summary>
+            多酷
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.UnverifyMode">
+            <summary>
+            免检方式
+            </summary>
+            <summary>
+            Email验证类型
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UnverifyMode.MOBILE">
+            <summary>
+            手机
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UnverifyMode.EMAIL">
+            <summary>
+            Email
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UnverifyMode.SECUREPWD">
+            <summary>
+            安全密码
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.UserStatus">
+            <summary>
+            同城游用户状态
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserStatus.USER_STATUS_NORMAIL">
+            <summary>
+            正常用户
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserStatus.USER_STATUS_LOCKED">
+            <summary>
+            锁定
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserStatus.USER_STATUS_FORBIDDEN">
+            <summary>
+            禁用
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Logon.UserLogonInfo">
+            <summary>
+            用户登录信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.UserLogonInfo.IP">
+            <summary>
+            登录IP
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.UserLogonInfo.AppID">
+            <summary>
+            登录应用（原平台ID）
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.UserLogonInfo.MobileHardInfo">
+            <summary>
+            登录时的硬件信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.UserLogonInfo.IgnorePrevLogonInfo">
+            <summary>
+            忽略上次登录信息
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Logon.UserNameAndPassword">
+            <summary>
+            用户名和密码登录
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.UserNameAndPassword.UserName">
+            <summary>
+            帐号名
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.UserNameAndPassword.Password">
+            <summary>
+            登录密码
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Logon.MobileAndPassword">
+            <summary>
+            手机号和密码登录
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.MobileAndPassword.Mobile">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.MobileAndPassword.Password">
+            <summary>
+            登录密码
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Logon.EmailAndPassword">
+            <summary>
+            Email和密码登录
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.EmailAndPassword.Email">
+            <summary>
+            Email
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.EmailAndPassword.Password">
+            <summary>
+            登录密码
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Logon.ThirdAccountLogon">
+            <summary>
+            第三方帐号登录
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.ThirdAccountLogon.OAuthInfo">
+            <summary>
+            第三方帐号信息
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Logon.ThirdAccountLogon2">
+            <summary>
+            第三方帐号登录
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.ThirdAccountLogon2.OAuthInfo">
+            <summary>
+            第三方帐号信息
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Logon.HallLogon">
+            <summary>
+            大厅登录
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.HallLogon.UserID">
+            <summary>
+            用户 ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.HallLogon.Password">
+            <summary>
+            登录密码
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Logon.MobileAndSmsCode">
+            <summary>
+            手机号和短信验证码登录
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.MobileAndSmsCode.Mobile">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.MobileAndSmsCode.SmsCode">
+            <summary>
+            短信验证码
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Logon.AccountAndPassword">
+            <summary>
+            帐号(用户名或手机号)和密码登录
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.AccountAndPassword.Account">
+            <summary>
+            帐号
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.AccountAndPassword.Password">
+            <summary>
+            登录密码
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Logon.NamespaceDoc">
+            <summary>
+            登录操作中使用到的相关类
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Logon.UserLogonResultInfo">
+            <summary>
+            用户登录返回信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.UserLogonResultInfo.UserID">
+            <summary>
+            登录成功的用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.UserLogonResultInfo.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.UserLogonResultInfo.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.UserLogonResultInfo.IsForbid">
+            <summary>
+            是否被禁用
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.UserLogonResultInfo.PrevLogonInfo">
+            <summary>
+            前一次登录信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.UserLogonResultInfo.Message">
+            <summary>
+            登录失败返回消息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.UserLogonResultInfo.Password">
+            <summary>
+            用户登录密码加密后的，仅对第三方登录用户有效
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.UserLogonResultInfo.LoginToken">
+            <summary>
+            登录Token，目前仅用于手机短信登录后的无密码的情况
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Logon.UserLogonResultInfo.LoginTokenExpired">
+            <summary>
+            登录Token的过期时间戳
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.NamespaceDoc">
+             <summary>
+             <b>CtUser.Service</b> 提供畅唐通行证用户接口相关功能。
+             <list type="number">
+             <item>
+             <description>本接口均使用WebService提供，遵循.net的WebService标准。</description>
+             </item>
+              <item>
+             <description>本接口仅向公司内部业务项目开发，并会在调用时进行身份校验。</description>
+             </item>
+             <item>
+             <description>本接口已封装成dll，并已发布到内部<b><a href="http://www.baidu.com/s?wd=nuget">NuGet</a></b>服务器(<b><font color="blue">http://192.168.1.230:8086/nuget/</font></b>)上，包名称为 <b>CtUser.Service</b>。</description>
+             </item>
+             <item>
+             <description>常用的接口类：
+             <para>
+             <list type="table">
+             <listheader>
+             <term>类</term>
+             <term>说明</term>
+             </listheader>
+             <item>
+                 <term><see cref="T:CtUser.Service.UserService"/></term>
+                 <term>公共接口类</term>
+             </item>
+             <item>
+             <term><see cref="T:CtUser.Service.UserRegService"/></term>
+             <term>注册接口类</term>
+             </item>
+             <item>
+             <term><see cref="T:CtUser.Service.UserCustomService"/></term>
+             <term>客服系统用到的相关接口类</term>
+             </item>
+             <item>
+             <term><see cref="T:CtUser.Service.UserLogService"/></term>
+             <term>用户相关日志查询接口类</term>
+             </item>
+             </list>
+             </para>
+             </description>
+             </item>
+             </list>
+             <b>如何使用接口？</b>
+             <list type="number">
+             <item>
+             <description>首先通过Nuget插件将CtUser.Service包加载到你的项目中
+             </description>
+             </item>
+             <item>
+             <description>配置Web.config或app.config
+             <code lang="xml">
+             <![CDATA[
+                 <appSettings>
+                     <!--平台ID-->
+                     <add key="PlatformID" value="66" />
+                     <!--安全密钥-->
+                     <add key="SecureKey" value="8d7eyhg7" />
+                     <!--接口服务地址配置文件路径-->
+                     <add key="DomainSwitchConfigPath" value="/config/DomainSwitch.config" />
+                     <!--使用接口服务的方案,如果为空,默认第一种方案-->
+                     <add key="DomainSwitchSolution" value="Solution1" />
+                 </appSettings>
+                 ]]>
+             </code>
+             </description>
+             </item>
+             <item>
+             <description>配置DomainSwitch.config;<b>注意：</b>如果你程序是WinForm或Windows Service，请将DomainSwitch.config属性【复制输出目录】设置为“如果较新则复制”
+             <code lang="xml">
+             <![CDATA[
+             <?xml version="1.0" encoding="UTF-8"?>
+            <DomainSwitch>
+              <Solution1 Domain=".uc108.org" SetDomain=".uc108.org">
+                <SiteHost>
+                </SiteHost>
+                <ServiceUrl>
+                  <CtUserService>http://usersvc.ct108.org:1904/</CtUserService>
+                  <UserRegService>http://usersvcb.ct108.org:1905/</UserRegService>
+                </ServiceUrl>
+              </Solution1>
+            </DomainSwitch>
+            ]]>
+             </code>
+             </description>
+             </item>
+             <item>
+             <description>使用示例：
+             <code lang="c#">
+             <![CDATA[
+                 int userID = 1;
+                 var service = ServiceFactory.Create<UserService>();
+            
+                 var result = service.GetUserInfo(userID);
+            
+                 if (result.Data == null)
+                 {
+                     throw new Exception("用户不存在");
+                 }
+                 var user = result.Data;
+            
+                 Console.WriteLine(user.Name);
+                 ]]>
+             </code>
+             </description>
+             </item>
+             <item>
+             <description>注意事项：<br/>
+             <para>
+                 在调用接口方法之前，应该向接口管理员申请<b>平台ID</b>和<b>密钥</b>，并将开发服务器、测试服务器、正式服务器的<b>硬盘序列号</b>提交给接口管理员；同时需要接口管理员对用到的具体方法进行授权。例如：在上例中使用到了GetUserInfo方法，若管理员未授权您调用该方法，您将不能获取到正确的数据。
+             </para>
+             </description>
+             </item>
+             </list>
+             <b>接口约定</b>
+             <list type="number">
+            <item>
+                 <description>接口地址：<br/>
+                 <para>
+            <list type="table">
+            <listheader>
+                         <term>接口</term>
+                         <term>正式版</term>
+                         <term>测试版</term>
+            </listheader>  
+            <item>
+            <term>CtUserService</term>
+            <term>http://usersvc.ct108.net</term>
+            <term>http://usersvc.ct108.org:1904</term>
+             </item>
+             <item>
+                 <term>UserRegService</term>
+                 <term>http://usersvcb.ct108.net</term>
+                 <term>http://usersvcb.ct108.org:1905</term>
+             </item>
+             </list>  
+             </para>
+                 </description>
+            </item>
+            <item>
+             <description>返回结果约定:<br/>
+                 <para>
+                 <list type="bullet">
+                     <item><description>
+             原则上返回结构类型均为：<see cref="T:CtUser.Service.Result`1"/>类型，结构如下：
+             <list type="table">
+                 <listheader>
+             <term>属性</term>
+             <term>类型</term>
+             <term>说明</term>
+             </listheader>
+             <item>
+             <term>Successed</term>
+             <term><see cref="T:System.Boolean"/></term>
+             <term>操作是否成功，有权限，未发生异常，为true</term>
+             </item>
+             <item>
+             <term>Message</term>
+             <term><see cref="T:System.String"/></term>
+             <term>错误消息</term>
+             </item>
+             <item>
+             <term>Data</term>
+             <term>T</term>
+             <term>返回的数据结果</term>
+             </item>
+             </list>
+             </description></item>    
+             </list>    
+             </para>
+             <para>
+                 <b>例如：</b><br/>
+                 判断用户名是否已存在，返回类型：Resut&lt;bool&gt;<br/>
+                 如果Successed=false,则无权限或者操作发生异常<br/>
+                 如果Data=true,则用户名已存在<br/>
+             </para>
+             </description>
+             </item>
+             <item>
+                 <description>接口授权错误信息<br/>
+             <para>
+                 <list type="bullet">
+                 <item><description>平台信息不存在或已被禁用</description></item>    
+                 <item><description>客户端信息不存在或已被禁用：{+客户端IP}</description></item> 
+                 <item><description>该平台没有授权调用本接口方法。</description></item> 
+                 <item><description>接口方法未进行授权。</description></item> 
+                 <item><description>该接口方法未注册授权。</description></item> 
+                 <item><description>该平台没有授权调用本接口方法。</description></item> 
+                 <item><description>验证头信息不能为空</description></item> 
+                 <item><description>无权访问接口。对象被禁用，或数字签证失败。</description></item> 
+             </list>
+             </para>    
+             </description>
+             </item>
+             </list>
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Reg.NamespaceDoc">
+            <summary>
+            注册操作中使用到的相关类
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Reg.MobileClientAccount">
+            <summary>
+            手机端一键注册(新，替代MobileOneKeyAccount)
+            </summary>
+            <remarks>
+            <list type="bullet">
+                <item>若需要一键注册，请将UserName和Mobile都置空</item>
+                <item>若需要用户名和密码注册，请设置UserName和Password并验证其合法性</item>
+                <item>如果需要使用手机注册，必须先调用<see cref="M:CtUser.Service.UserRegService.SendRegSms(System.String,System.Int32)"/>发送手机短信验证码；否则手机号留空</item>
+            </list> 
+            </remarks>
+        </member>
+        <member name="P:CtUser.Service.Reg.MobileClientAccount.OSName">
+            <summary>
+            手机系统名称
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.MobileClientAccount.MobileHardInfo">
+            <summary>
+            手机硬件信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.MobileClientAccount.Password">
+            <summary>
+            登录密码
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.MobileClientAccount.UserName">
+            <summary>
+            生成一个唯一的用户名
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.MobileClientAccount.Mobile">
+            <summary>
+            手机号注册
+            </summary>
+            <remarks>
+                如果需要使用手机注册，必须先调用<see cref="M:CtUser.Service.UserRegService.SendRegSms(System.String,System.Int32)"/>发送手机短信验证码；否则手机号留空
+            </remarks>
+        </member>
+        <member name="P:CtUser.Service.Reg.MobileClientAccount.SmsCode">
+            <summary>
+            短信验证码
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Reg.MobileOneKeyAccount">
+            <summary>
+            手机端用户注册账户<br/>
+            <para>
+            该类将被<see cref="T:CtUser.Service.Reg.MobileClientAccount"/>替代。
+            </para>
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.MobileOneKeyAccount.OSName">
+            <summary>
+            手机系统名称
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.MobileOneKeyAccount.WifiID">
+            <summary>
+            MAC地址，去掉冒号，必须31个字节，低于时补0；
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.MobileOneKeyAccount.SystemID">
+            <summary>
+            安卓ID，iOS固定
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.MobileOneKeyAccount.ImeiID">
+            <summary>
+            手机识别号
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.MobileOneKeyAccount.ImsiID">
+            <summary>
+            国际移动用户识别码
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.MobileOneKeyAccount.SimSerialNO">
+            <summary>
+            SIM卡序列号，可为空
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.MobileOneKeyAccount.UserName">
+            <summary>
+            生成一个唯一的用户名
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Reg.ThirdAccount">
+            <summary>
+            第三方帐号注册
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.ThirdAccount.OAuthInfo">
+            <summary>
+            第三方帐号信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.ThirdAccount.Password">
+            <summary>
+            第三方登录不设置密码
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.ThirdAccount.OSName">
+            <summary>
+            手机系统名称
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.ThirdAccount.MobileHardInfo">
+            <summary>
+            手机硬件信息
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Reg.ThirdAccount2">
+            <summary>
+            第三方帐号注册
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.ThirdAccount2.OAuthInfo">
+            <summary>
+            第三方帐号信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.ThirdAccount2.Password">
+            <summary>
+            第三方登录不设置密码
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.ThirdAccount2.OSName">
+            <summary>
+            手机系统名称
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.ThirdAccount2.MobileHardInfo">
+            <summary>
+            手机硬件信息
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Reg.EmailAccount">
+            <summary>
+            Email帐号注册
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.EmailAccount.Email">
+            <summary>
+            注册Email地址
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.EmailAccount.IsCache">
+            <summary>
+            是否仅保存在缓存中
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Reg.MobileAccount">
+            <summary>
+            手机号注册
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.MobileAccount.Mobile">
+            <summary>
+            注册手机号
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.MobileAccount.SmsVerifyCode">
+            <summary>
+            短信验证码
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Reg.PersonalizedAccount">
+            <summary>
+            个性化帐号注册
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Reg.RegAccount">
+            <summary>
+            帐号注册信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.RegAccount.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.RegAccount.Password">
+            <summary>
+            登录密码
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.RegAccount.UserType">
+            <summary>
+            用户类型
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.RegAccount.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.RegAccount.RegIP">
+            <summary>
+            注册IP
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.RegAccount.CookieSign">
+            <summary>
+            Cookie签名信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.RegAccount.RegFrom">
+            <summary>
+            注册来源
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.RegAccount.DownloadGroup">
+            <summary>
+            下载大厅组,默认0
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.RegAccount.TrueName">
+            <summary>
+            真实姓名
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.RegAccount.IDCard">
+            <summary>
+            身份证号
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.RegAccount.IsEnableNickName">
+            <summary>
+            是否启用昵称
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Reg.RegAccount.NickName">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Request.NamespaceDoc">
+            <summary>
+            列表查询等查询条件类
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Request.EmailLogRequest">
+            <summary>
+            邮箱修改日志查询条件
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Request.MobileLogRequest">
+            <summary>
+            手机修改日志查询条件
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Request.PasswordLogWInfoRequest">
+            <summary>
+            密码修改日志查询条件
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Request.SecurePwdLogRequest">
+            <summary>
+            保护密码修改日志查询条件
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Request.UnbindByMobileLogRequest">
+            <summary>
+            短信解绑大厅日志查询条件
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Request.UserLogonLogRequest">
+            <summary>
+            用户登录日志查询条件
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Request.UserLogonLogRequest.OperationID">
+            <summary>
+            操作方式：0-登录,1-注销
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Request.ListRequest">
+            <summary>
+            分页查询条件
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Request.ListRequest.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Request.ListRequest.PageIndex">
+            <summary>
+            当前页码
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Request.ListRequest.PageSize">
+            <summary>
+            当前页大小
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Request.UserLogRequest">
+            <summary>
+            用户相关日志查询条件
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Request.UserLogRequest.BeginDate">
+            <summary>
+            开始日期
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Request.UserLogRequest.EndDate">
+            <summary>
+            结束日期
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.UserLog.NamespaceDoc">
+            <summary>
+            用户相关日志实体类
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.UserLog.AbstractUserLog">
+            <summary>
+            日志抽象类
+            </summary>   
+        </member>
+        <member name="T:CtUser.Service.UserLog.EmailLogWInfo">
+            <summary>
+            邮箱修改日志
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.EmailLogWInfo.ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.EmailLogWInfo.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.EmailLogWInfo.IP">
+            <summary>
+            操作IP
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.EmailLogWInfo.CreateDate">
+            <summary>
+            创建日期
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.EmailLogWInfo.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.EmailLogWInfo.OldMailbox">
+            <summary>
+            旧邮箱
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.UserLog.MobileLogWInfo">
+            <summary>
+            绑定手机修改日志
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.MobileLogWInfo.ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.MobileLogWInfo.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.MobileLogWInfo.IP">
+            <summary>
+            操作IP
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.MobileLogWInfo.CreateDate">
+            <summary>
+            创建日期
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.MobileLogWInfo.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.MobileLogWInfo.OldMobile">
+            <summary>
+            旧手机
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.UserLog.PasswordLogInfo">
+            <summary>
+            密码修改日志(大厅)
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.PasswordLogInfo.ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.PasswordLogInfo.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.PasswordLogInfo.IP">
+            <summary>
+            操作IP
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.PasswordLogInfo.CreateDate">
+            <summary>
+            创建日期
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.PasswordLogInfo.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.PasswordLogInfo.OldPwd">
+            <summary>
+            旧密码
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.PasswordLogInfo.OperationID">
+            <summary>
+            是否有保护密码修改
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.UserLog.PasswordLogWInfo">
+            <summary>
+            密码修改日志(网站)
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.PasswordLogWInfo.ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.PasswordLogWInfo.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.PasswordLogWInfo.IP">
+            <summary>
+            操作IP
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.PasswordLogWInfo.CreateDate">
+            <summary>
+            创建日期
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.PasswordLogWInfo.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.PasswordLogWInfo.OldPwd">
+            <summary>
+            旧密码
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.PasswordLogWInfo.ChangeType">
+            <summary>
+            修改类型：0=游戏修改；网站修改=10；电子邮件重置=20；手机短信重置=30；管理员重置=40
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.UserLog.SecurePwdLogInfo">
+            <summary>
+            安全密码操作日志(大厅)
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.SecurePwdLogInfo.ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.SecurePwdLogInfo.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.SecurePwdLogInfo.IP">
+            <summary>
+            操作IP
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.SecurePwdLogInfo.CreateDate">
+            <summary>
+            操作日期
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.SecurePwdLogInfo.CreateTime">
+            <summary>
+            操作时间
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.SecurePwdLogInfo.OldSecurePwd">
+            <summary>
+            修改之前的安全密码
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.SecurePwdLogInfo.OperationID">
+            <summary>
+            操作ID 0-设置 1-修改
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.UserLog.SecurePwdLogWInfo">
+            <summary>
+            安全密码操作日志(网站)
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.UserLog.UnbindByMobileLogInfo">
+            <summary>
+            手机解除电脑绑定日志信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UnbindByMobileLogInfo.ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UnbindByMobileLogInfo.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UnbindByMobileLogInfo.IP">
+            <summary>
+            操作IP
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UnbindByMobileLogInfo.CreateDate">
+            <summary>
+            创建日期
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UnbindByMobileLogInfo.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UnbindByMobileLogInfo.HardID">
+            <summary>
+            硬件ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UnbindByMobileLogInfo.HandPhone">
+            <summary>
+            手机号码
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.UserLog.UserLogonLogInfo">
+            <summary>
+            用户登录日志（游戏大厅)
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UserLogonLogInfo.ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UserLogonLogInfo.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UserLogonLogInfo.IP">
+            <summary>
+            操作IP
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UserLogonLogInfo.OperationID">
+            <summary>
+            操作ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UserLogonLogInfo.CreateDate">
+            <summary>
+            创建日期
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UserLogonLogInfo.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UserLogonLogInfo.OnlineTime">
+            <summary>
+            游戏时长
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UserLogonLogInfo.MachineID">
+            <summary>
+            机器识别码
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UserLogonLogInfo.VolumeID">
+            <summary>
+            卷标
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UserLogonLogInfo.HardID">
+            <summary>
+            硬件ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UserLogonLogInfo.GroupID">
+            <summary>
+            大厅组ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UserLogonLogInfo.GameID">
+            <summary>
+            移动游戏日志
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.UserLog.UserLogonLogWInfo">
+            <summary>
+            用户登录日志(网站)
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UserLogonLogWInfo.ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UserLogonLogWInfo.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UserLogonLogWInfo.IP">
+            <summary>
+            操作IP
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UserLogonLogWInfo.OperationID">
+            <summary>
+            操作ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UserLogonLogWInfo.LogonFrom">
+            <summary>
+            用户登录来源
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UserLogonLogWInfo.CreateDate">
+            <summary>
+            创建日期
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.UserLog.UserLogonLogWInfo.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.ServiceFactory">
+            <summary>
+            接口服务实例化工厂
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.ServiceFactory._platformID">
+            <summary>
+            平台ID
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.ServiceFactory.secureKey">
+            <summary>
+            安全密钥
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.ServiceFactory.hardID">
+            <summary>
+            硬盘序列号
+            </summary>
+        </member>
+        <member name="M:CtUser.Service.ServiceFactory.Create``1">
+            <summary>
+            从web.config中获取验证信息，并实例化接口对象
+            </summary>
+            <typeparam name="T">接口类型</typeparam>
+            <returns>接口实例</returns>
+            <example>
+            <code lang="c#">
+            UserService service=ServiceFactory.Create&lt;UserService&gt;();
+            </code>
+            </example>
+        </member>
+        <member name="M:CtUser.Service.ServiceFactory.GetHeader">
+            <summary>
+            获取头信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.ServiceFactory.GetHeader(System.Int32,System.String,System.String)">
+            <summary>
+            初始化头部签名信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.ServiceFactory.ConvertToMD5(System.String)">
+            <summary>
+            返回 System.String 对象进行MD5加密后的32字符十六进制格式字符串
+            </summary>
+            <param name="str">要加密的字符串</param>
+            <returns>返回加密字符串</returns>
+        </member>
+        <member name="M:CtUser.Service.ServiceFactory.GetVolOf(System.String)">
+            <summary>
+            根据硬盘卷标，获得硬盘序列号
+            </summary>
+            <param name="drvID">硬盘卷标</param>
+            <returns>硬盘序列号</returns>
+        </member>
+        <member name="T:CtUser.Service.UserCenterService">
+            <summary>
+            用户中心相关接口
+            </summary>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.VerifyHadBindMobile(System.Int32,System.String,System.String)">
+            <summary>
+            校验用户绑定的手机是否合法
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="code">短信验证码</param>
+            <param name="userIP">IP</param>
+            <returns>用户绑定的手机是否合法</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.UpdateBirthDay(System.Int32,CtUser.Service.Entity.BirthDay,System.String)">
+            <summary>
+            修改生日
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="birthDay">生日</param>
+            <param name="ip">IP</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.UpdateArea(System.Int32,CtUser.Service.Entity.Area,System.String)">
+            <summary>
+            修改所在地区
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="area">地区</param>
+            <param name="ip">IP</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.OpenMobileLogon(System.Int32,System.String,System.String)">
+            <summary>
+            在绑定手机的基础上开通手机登录
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="code">短信验证码</param>
+            <param name="userIP">用户IP</param>
+            <returns>操作是否成功</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.OpenMobileLogon2(System.Int32,System.String,System.String,System.String)">
+            <summary>
+            开通手机号
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="mobile">手机号</param>
+            <param name="code">短信验证码</param>
+            <param name="userIP">用户IP</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.OpenMobileLogon3(CtUser.Service.VerifyBind.VerifyBindInfo,System.String,System.String)">
+            <summary>
+            开通手机登录
+            </summary>
+            <param name="bindInfo">要验证的绑定信息</param>
+            <param name="mobile">用户ID</param>
+            <param name="code">验证码</param>
+            <returns>操作是否成功</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.UpdateMobileLogon(System.Int32,System.String,System.String,System.String)">
+            <summary>
+            更新用户手机登录的手机号
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="mobile">手机号</param>
+            <param name="code">验证码</param>
+            <param name="userIP">用户IP</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.IsOpenMobileLogon(System.Int32)">
+            <summary>
+            判断用户是否已开通手机登录功能
+            </summary>
+            <param name="userID">用户ID</param>
+            <returns>是否已开通</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.IsOpenEmailLogon(System.Int32)">
+            <summary>
+            判断用户是否已开通Email登录功能
+            </summary>
+            <param name="userID">用户ID</param>
+            <returns>是否已开通</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.CancelMobileLogon(System.Int32,System.String,System.String,System.String)">
+            <summary>
+            取消手机登录功能
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="mobile">手机号</param>
+            <param name="code">短信验证码</param>
+            <param name="userIP">IP</param>
+            <returns>操作是否成功</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.CancelEmailLogon(System.Int32,System.String,System.String,System.String)">
+            <summary>
+            取消Email登录功能
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="email">邮箱</param>
+            <param name="code">邮箱验证码</param>
+            <param name="userIP">IP</param>
+            <returns>操作是否成功</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.SendVerifySms(System.Int32,System.String,CtUser.Service.MobileVerifyCodeType,System.Int32)">
+            <summary>
+            发送验证短信信息
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="mobile">接收短信手机</param>
+            <param name="verifyCodeType">校验功能</param>
+            <param name="regFrom">来源</param>
+            <returns>操作是否成功</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.SaveBindMobile(CtUser.Service.VerifyBind.VerifyBindInfo,System.String,System.String)">
+            <summary>
+            验证绑定手机号
+            </summary>
+            <param name="bindInfo">验证信息：保护密码(VerifyBindSecurePwd)、登录密码(VerifyBindLogonPassword)、邮箱(VerifyBindEmail)、手机(VerfiyBindMobile)、实名认证(VerfiyBindIdCardTrueName)、免验证(EnabledUnVerifyBind)</param>
+            <param name="mobile">手机号</param>
+            <param name="code">短信验证码</param>
+            <returns>操作是否成功</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.UnBindMobile(CtUser.Service.VerifyBind.VerifyBindInfo,System.String,System.String)">
+            <summary>
+            解除绑定手机号
+            </summary>
+            <param name="bindInfo">验证信息：保护密码(VerifyBindSecurePwd)、登录密码(VerifyBindLogonPassword)、邮箱(VerifyBindEmail)、手机(VerfiyBindMobile)、实名认证(VerfiyBindIdCardTrueName)、免验证(EnabledUnVerifyBind)</param>
+            <param name="mobile">原手机号</param>
+            <param name="code">短信验证码</param>
+            <returns>操作是否成功</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.UpdateLogonPassword(CtUser.Service.VerifyBind.VerifyBindInfo,System.String,System.Int32)">
+            <summary>
+            更新用户登录密码
+            </summary>
+            <param name="bindInfo">验证信息：保护密码(VerifyBindSecurePwd)、登录密码(VerifyBindLogonPassword)、邮箱(VerifyBindEmail)、手机(VerfiyBindMobile)、实名认证(VerfiyBindIdCardTrueName)、免验证(EnabledUnVerifyBind)、一键注册（VerifyMobileOneKey）</param>
+            <param name="newPwd">新密码</param>
+            <param name="regFrom">操作来源</param>
+            <returns>操作是否成功</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.IsCanBindMobile(System.Int32,CtUser.Service.MobileBindSupportType)">
+            <summary>
+            检查指定项目是否可以绑定手机
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="support">判断项目</param>
+            <returns>true=可以使用此项目绑定手机</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.IsCanOpenMobileLogon(System.Int32,System.String)">
+            <summary>
+            检查该用户ID的手机号可否开通登录
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="mobile">手机号</param>
+            <returns>true=可以手机号开通登录</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.IsOpenMobileLogon2(System.Int32,System.String)">
+            <summary>
+            检查用户手机号是否可以开通登录
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="mobile">登录的手机</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.IsOpenAccountSafeguard(System.Int32)">
+            <summary>
+            是否开启账号安全保护功能
+            </summary>
+            <param name="userID">用户ID</param>
+            <returns>是否已开通</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.VerifyAccountSafeguardMobile(System.Int32,System.String,System.String)">
+            <summary>
+            校验账号安全手机验证码是否合法
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="code">短信验证码</param>
+            <param name="userIP">IP</param>
+            <returns>账号安全手机验证码是否合法</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.IsUpdatedPassword(System.Int32)">
+            <summary>
+            当前用户是否修改过密码
+            </summary>
+            <param name="userID">用户ID</param>
+            <returns>true=修改过；</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.AddUserAddress(CtUser.Service.Entity.UserAddressInfo)">
+            <summary>
+            增加用户地址信息
+            </summary>
+            <param name="userAddressInfo">用户地址信息</param>
+            <returns>true=成功；</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.UpdateUserAddress(CtUser.Service.Entity.UserAddressInfo)">
+            <summary>
+            修改用户地址信息
+            </summary>
+            <param name="userAddressInfo">用户地址信息</param>
+            <returns>true=成功；</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.DeleteUserAddress(System.Int64)">
+            <summary>
+            删除用户地址信息
+            </summary>
+            <param name="ID">地址信息ID</param>
+            <returns>true=成功；</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.GetUserAddressList(System.Int32)">
+            <summary>
+            获取用户的地址信息
+            </summary>
+            <param name="userID">用户ID</param>
+            <returns>true=成功；</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.GetUserAddressByID(System.Int64)">
+            <summary>
+            获取地址信息通过ID
+            </summary>
+            <param name="ID">自增ID</param>
+            <returns>true=成功；</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.AddThirdUserAccount(CtUser.Service.Entity.ThirdUserAccountInfo2)">
+            <summary>
+            添加第三方账号绑定
+            </summary>
+            <param name="info">第三方账号信息</param>
+            <returns>true=成功；</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.IsBindThirdAccount(System.Int32,System.Int32,System.String)">
+            <summary>
+            是否绑定了第三方账号
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="userType">第三方用户类型</param>
+            <param name="partnerAppID">合作（第三方）的应用ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.GetThirdUserAccountList(System.Int32)">
+            <summary>
+            获取第三方用户信息列表
+            </summary>
+            <param name="userID">用户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.GetThirdUserAccount(System.Int32,System.Int32,System.String)">
+            <summary>
+            获取第三方用户信息
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="userType">用户类型</param>
+            <param name="partnerAppID">第三方APPID</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.UserCenterService.UpdatePersonalInfo(CtUser.Service.Entity.UserModifyInfo,System.String)">
+            <summary>
+            更新用户资料
+            </summary>
+            <param name="userModifyInfo">用户待修改的资料</param>
+            <param name="ip">用户IP</param>
+            <returns>操作是否成功</returns>
+        </member>
+        <member name="T:CtUser.Service.UserCustomService">
+            <summary>
+            客服系统用到的接口
+            </summary>
+        </member>
+        <member name="M:CtUser.Service.UserCustomService.#ctor">
+            <summary>
+            客服系统用到的接口构造函数
+            </summary>
+        </member>
+        <member name="M:CtUser.Service.UserCustomService.SetIDCardUnverified(System.Int32,CtUser.Service.IDCardMode)">
+            <summary>
+            取消实名认证校验位信息
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="mode">实名认证方式(身份证单面，或者双面),<see cref="T:CtUser.Service.IDCardMode"/></param>
+            <returns>操作是否成功</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+             int userID = 14648;
+             IDCardMode mode = IDCardMode.SINGLE;
+            
+             var service = ServiceFactory.Create<UserCustomService>();
+             var result = service.SetIDCardUnverified(userID, mode);
+            
+             if (!result.Successed) {
+                 Console.WriteLine("错误消息："+result.Message);
+                 return;
+             }
+             if (result.Data) {
+                 Console.WriteLine("取消成功");
+             }
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtUser.Service.UserCustomService.SetIDCardVerified(System.Int32,CtUser.Service.IDCardMode)">
+             <summary>
+             设置实名认证校验位信息
+             </summary>
+             <param name="userID">用户ID</param>
+             <param name="mode">实名认证方式(身份证单面，或者双面),<see cref="T:CtUser.Service.IDCardMode"/></param>
+             <returns>操作是否成功</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             int userID = 14648;
+             IDCardMode mode = IDCardMode.SINGLE;
+            
+             var service = ServiceFactory.Create<UserCustomService>();
+             var result = service.SetIDCardVerified(userID, mode);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             if (result.Data)
+             {
+                 Console.WriteLine("设置成功");
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserCustomService.SendUnBindHardIDSmsCode(System.String)">
+            <summary>
+            发送解绑大厅短信验证码，发送成功则返回用户ID,否则返回0
+            </summary>
+            <param name="userName">用户名,不需要Base64编码</param>
+            <returns>发送成功则返回用户ID,否则返回0</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+             string userName = "shenjk";
+             var service = ServiceFactory.Create<UserCustomService>();
+             var result = service.SendUnBindHardIDSmsCode(userName);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             if (result.Data == 0)
+             {
+                 Console.WriteLine("失败原因：" + result.Message);
+                 return;
+             }
+             Console.WriteLine("用户ID：" + result.Data);
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtUser.Service.UserCustomService.UnBindHardID(System.Int32,System.String,System.String)">
+             <summary>
+             验证手机短信验证码解绑大厅
+             </summary>
+             <param name="userID">用户ID</param>
+             <param name="code">短信写验证码</param>
+             <param name="userIP">用户IP</param>
+             <returns>操作是否成功</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+                         int userID = 14648;
+             string code = "123456";
+             string userIP = "127.0.0.1";
+            
+             var service = ServiceFactory.Create<UserCustomService>();
+             var result = service.UnBindHardID(userID, code, userIP);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             if (result.Data)
+             {
+                 Console.WriteLine("解绑成功");
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserCustomService.UnbindUser(System.Int32,System.Int32,System.String)">
+             <summary>
+             解除用户绑定电脑(硬件)信息 (客服操作)
+             </summary>
+             <param name="userID">用户ID</param>
+             <param name="adminID">管理员ID</param>
+             <param name="remark">备注</param>
+             <returns>操作是否成功</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+              int userID = 14648;
+              int adminID = 168;
+              string remark = "更换电脑需要解绑";
+            
+              var service = ServiceFactory.Create<UserCustomService>();
+              var result = service.UnbindUser(userID, adminID, remark);
+            
+              if (!result.Successed)
+              {
+                  Console.WriteLine("错误消息：" + result.Message);
+                  return;
+              }
+              if (result.Data)
+              {
+                  Console.WriteLine("解绑成功");
+              }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserCustomService.UnbindUserMobile(System.Int32,System.Int32,System.String)">
+             <summary>
+             解除用户绑定的手机信息
+             </summary>
+             <param name="userID">用户ID</param>
+             <param name="adminID">管理员ID</param>
+             <param name="remark">备注</param>
+             <returns>操作是否成功</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             int userID = 14648;
+             int adminID = 168;
+             string remark = "更换了手机号码";
+            
+             var service = ServiceFactory.Create<UserCustomService>();
+             var result = service.UnbindUserMobile(userID, adminID, remark);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             if (result.Data)
+             {
+                 Console.WriteLine("解绑成功");
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserCustomService.GetLastVerifySecurePwd(System.Int32)">
+             <summary>
+             获取用户最后校验保护密码信息
+             </summary>
+             <param name="userID">用户ID</param>
+             <returns>最后校验保护密码信息</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             int userID = 14648;
+            
+             var service = ServiceFactory.Create<UserCustomService>();
+             var result = service.GetLastVerifySecurePwd(userID);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             if (result.Data != null)
+             {
+                 Console.WriteLine("最后校验时间：" + result.Data.VerifiedTime.ConvertTimeByUnix().ToString("yyyy-MMM-dd HH:mm:ss"));
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserCustomService.SendFindPwdEmail(CtUser.Service.Entity.SendFindLogonPwdEmailInfo)">
+            <summary>
+            发送用户找回密码邮件 用于用户自助找回密码
+            </summary>
+            <param name="info">发送Email的相关信息;查看<see cref="T:CtUser.Service.Entity.SendFindLogonPwdEmailInfo"/></param>
+            <returns>操作是否成功</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+             SendFindLogonPwdEmailInfo info = new SendFindLogonPwdEmailInfo
+             {
+                 UserID = 14648,
+                 UserIP = "127.0.0.1"
+             };
+            
+             var service = ServiceFactory.Create<UserCustomService>();
+             var result = service.SendFindPwdEmail(info);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             if (result.Data )
+             {
+                 Console.WriteLine("发送成功");
+             }
+             ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtUser.Service.UserCustomService.VerifyFindPwdEmail(System.Int32,System.String,System.String,System.String)">
+             <summary>
+             验证找回密码连接是否正确，并且修改为新密码
+             </summary>
+             <param name="userID">用户ID</param>
+             <param name="sign">签名信息</param>
+             <param name="newPwd">新密码</param>
+             <param name="userIP">用户IP</param>
+             <returns>修改密码是否成功</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             int userID = 14648;
+             string sign = "";//从邮件跳转地址参数获取
+             string newPwd = "ancd9x2";
+             string userIP = "127.0.0.1";
+            
+             var service = ServiceFactory.Create<UserCustomService>();
+             var result = service.VerifyFindPwdEmail(userID,sign,newPwd,userIP);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             if (result.Data)
+             {
+                 Console.WriteLine("修改密码成功");
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserCustomService.CancelSecurePwd(System.Int32,System.String,System.String,System.Int32,System.String)">
+             <summary>
+             管理员取消保护密码
+             </summary>
+             <param name="adminID">管理员ID</param>
+             <param name="adminName">管理员名</param>
+             <param name="remark">备注</param>
+             <param name="userID">用户ID</param>
+             <param name="ip">操作IP</param>
+             <returns>是否取消成功</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             int adminID = 330;
+             string adminName = "shenjk";
+             string remark = "客服订单号：20140530122790110";
+             int userID = 14648;           
+             string ip = "127.0.0.1";
+            
+             var service = ServiceFactory.Create<UserCustomService>();
+             var result = service.CancelSecurePwd(adminID,adminName,remark,userID,ip);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             if (result.Data)
+             {
+                 Console.WriteLine("取消保护密码成功");
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserCustomService.SaveIDCardTrueName(System.Int32,CtUser.Service.Entity.IDCardTrueName,System.Int32,System.String,System.String)">
+            <summary>
+            设置用户实名认证信息
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="newIDCardTrueName">新实名认证信息</param>
+            <param name="adminID">管理员ID</param>
+            <param name="userIP">操作IP</param>
+            <param name="remark">备注</param>
+            <returns>操作是否成功</returns>
+        </member>
+        <member name="M:CtUser.Service.UserCustomService.CancelIDCardTrueName(System.Int32,System.Boolean,System.Boolean,System.Int32,System.String,System.String)">
+            <summary>
+            取消实名相关信息
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="cancelIDCard">是否取消身份证信息</param>
+            <param name="cancelTruename">是否取消真实姓名</param>
+            <param name="adminID">操作员ID</param>
+            <param name="remark">备注信息</param>
+            <returns>操作是否成功</returns>
+        </member>
+        <member name="T:CtUser.Service.GenderType">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.GenderType.MALE">
+            <summary>
+            男性
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.GenderType.FEMALE">
+            <summary>
+            女性
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.IDCardMode">
+            <summary>
+            实名认证模式
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.IDCardMode.SINGLE">
+            <summary>
+            单面
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.IDCardMode.DOUBLE">
+            <summary>
+            双面
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Result">
+            <summary>
+            操作返回结果
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Result.Successed">
+            <summary>
+            操作是否成功
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.Result.Message">
+            <summary>
+            操作失败或异常返回消息
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.Result`1">
+            <summary>
+            操作结果，附加成功返回数据
+            </summary>
+            <typeparam name="T">返回数据类型</typeparam>
+        </member>
+        <member name="P:CtUser.Service.Result`1.Data">
+            <summary>
+            操作成功时附加数据
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.ServiceHelper">
+            <summary>
+            服务帮助类
+            </summary>
+        </member>
+        <member name="M:CtUser.Service.ServiceHelper.GetServiceUrl(System.String)">
+            <summary>
+            获取服务接口地址
+            </summary>
+            <param name="serviceFileName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CtUser.Service.UserLogService">
+            <summary>
+            用户日志查询操作接口
+            </summary>
+        </member>
+        <member name="M:CtUser.Service.UserLogService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:CtUser.Service.UserLogService.QuerySecurePwdLog(CtUser.Service.Request.SecurePwdLogRequest,System.Int32@)">
+            <summary>
+            根据用户ID.查询条件.页号.页长,获取用户修改保护密码日志【大厅】
+            </summary>
+            <param name="request">保护密码修改日志查询条件</param>
+            <param name="recordCount">记录总数</param>
+            <returns>用户保护密码修改日志</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+            var request = new SecurePwdLogRequest()
+             {
+                 PageIndex = 1,
+                 PageSize = 20,
+                 UserID = 14648,
+                 BeginDate = 20140530,
+                 EndDate = 0
+             };
+             int recordCount = 0;
+            
+             var service = ServiceFactory.Create<UserLogService>();
+             var result = service.QuerySecurePwdLog(request, out recordCount);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             Console.WriteLine("记录数：" + recordCount);
+             if (result.Data != null)
+             {
+                 result.Data.ForEach(item =>
+                 {
+                     Console.WriteLine("操作日期:" + item.CreateDate);
+                 });
+             }
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtUser.Service.UserLogService.QuerySecurePwdLogW(CtUser.Service.Request.SecurePwdLogRequest,System.Int32@)">
+            <summary>
+            根据用户ID.查询条件.页号.页长,获取用户修改保护密码日志【网站】
+            </summary>
+            <param name="request">保护密码修改日志查询条件</param>
+            <param name="recordCount">记录总数</param>
+            <returns>用户保护密码修改日志</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+            var request = new SecurePwdLogRequest()
+             {
+                 PageIndex = 1,
+                 PageSize = 20,
+                 UserID = 14648,
+                 BeginDate = 20140530,
+                 EndDate = 0
+             };
+             int recordCount = 0;
+            
+             var service = ServiceFactory.Create<UserLogService>();
+             var result = service.QuerySecurePwdLogW(request, out recordCount);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             Console.WriteLine("记录数：" + recordCount);
+             if (result.Data != null)
+             {
+                 result.Data.ForEach(item =>
+                 {
+                     Console.WriteLine("操作日期:" + item.CreateDate);
+                 });
+             }
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtUser.Service.UserLogService.QueryUserUnbindByMobile(CtUser.Service.Request.UnbindByMobileLogRequest,System.Int32@)">
+            <summary>
+            根据用户ID、查询条件、页号、页长等，获取用户通过手机短信自助解绑与电脑绑定日志【网站】
+            </summary>
+            <param name="request">查询条件</param>
+            <param name="recordCount">记录总数</param>
+            <returns>用户日志</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+              var request = new UnbindByMobileLogRequest()
+              {
+                  PageIndex = 1,
+                  PageSize = 20,
+                  UserID = 14648,
+                  BeginDate = 20140530,
+                  EndDate = 0
+              };
+              int recordCount = 0;
+             
+              var service = ServiceFactory.Create<UserLogService>();
+              var result = service.QueryUserUnbindByMobile(request, out recordCount);
+             
+              if (!result.Successed)
+              {
+                  Console.WriteLine("错误消息：" + result.Message);
+                  return;
+              }
+              Console.WriteLine("记录数：" + recordCount);
+              if (result.Data != null)
+              {
+                  result.Data.ForEach(item =>
+                  {
+                      Console.WriteLine("手机号:" + item.HandPhone);
+                  });
+              }
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtUser.Service.UserLogService.QueryPasswordLog(CtUser.Service.Request.PasswordLogWInfoRequest,System.Int32@)">
+            <summary>
+            根据用户ID.查询条件.页号.页长,获取用户修改密码日志【大厅】
+            </summary>
+            <param name="request">查询条件</param>
+            <param name="recordCount">记录总数</param>
+            <returns>用户密码修改日志(大厅)</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+             var request = new PasswordLogWInfoRequest()
+             {
+                 PageIndex = 1,
+                 PageSize = 20,
+                 UserID = 14648,
+                 BeginDate = 20140530,
+                 EndDate = 0
+             };
+             int recordCount = 0;
+            
+             var service = ServiceFactory.Create<UserLogService>();
+             var result = service.QueryPasswordLog(request, out recordCount);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             Console.WriteLine("记录数：" + recordCount);
+             if (result.Data != null)
+             {
+                 result.Data.ForEach(item =>
+                 {
+                     Console.WriteLine("旧密码:" + item.OldPwd);
+                 });
+             }
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtUser.Service.UserLogService.QueryPasswordLogW(CtUser.Service.Request.PasswordLogWInfoRequest,System.Int32@)">
+             <summary>
+             根据用户ID.查询条件.页号.页长,获取用户修改密码日志【网站】
+             </summary>
+             <param name="request">查询条件</param>
+             <param name="recordCount">记录总数</param>
+             <returns>用户密码修改日志</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+              var request = new PasswordLogWInfoRequest()
+             {
+                 PageIndex = 1,
+                 PageSize = 20,
+                 UserID = 14648,
+                 BeginDate = 20140530,
+                 EndDate = 0
+             };
+             int recordCount = 0;
+            
+             var service = ServiceFactory.Create<UserLogService>();
+             var result = service.QueryPasswordLog(request, out recordCount);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             Console.WriteLine("记录数：" + recordCount);
+             if (result.Data != null)
+             {
+                 result.Data.ForEach(item =>
+                 {
+                     Console.WriteLine("ID:" + item.ID);
+                 });
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserLogService.QueryMobileLog(CtUser.Service.Request.MobileLogRequest,System.Int32@)">
+             <summary>
+             根据用户ID.查询条件.页号.页长,获取用户修改手机日志【网站】
+             </summary>
+             <param name="request">手机修改请求条件</param>
+             <param name="recordCount">记录总数</param>
+             <returns>用户修改手机日志</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             var request = new MobileLogRequest()
+             {
+                 PageIndex = 1,
+                 PageSize = 20,
+                 UserID = 14648,
+                 BeginDate = 20140530,
+                 EndDate = 0
+             };
+             int recordCount = 0;
+            
+             var service = ServiceFactory.Create<UserLogService>();
+             var result = service.QueryMobileLog(request, out recordCount);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             Console.WriteLine("记录数：" + recordCount);
+             if (result.Data != null)
+             {
+                 result.Data.ForEach(item =>
+                 {
+                     Console.WriteLine("原手机:" + item.OldMobile);
+                 });
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserLogService.QueryMailboxLog(CtUser.Service.Request.EmailLogRequest,System.Int32@)">
+             <summary>
+             根据用户ID.查询条件.页号.页长,获取用户修改邮箱日志【网站】
+             </summary>
+             <param name="request">邮箱修改日志请求条件</param>
+             <param name="recordCount">记录总数</param>
+             <returns>用户Email修改日志集</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             var request = new EmailLogRequest()
+             {
+                 PageIndex = 1,
+                 PageSize = 20,
+                 UserID = 14648,
+                 BeginDate = 20140530,
+                 EndDate = 0
+             };
+             int recordCount = 0;
+            
+             var service = ServiceFactory.Create<UserLogService>();
+             var result = service.QueryMailboxLog(request, out recordCount);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             Console.WriteLine("记录数：" + recordCount);
+             if (result.Data != null)
+             {
+                 result.Data.ForEach(item =>
+                 {
+                     Console.WriteLine("原邮箱:" + item.OldMailbox);
+                 });
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserLogService.QueryUserLogon(CtUser.Service.Request.UserLogonLogRequest,System.Int32@)">
+            <summary>
+            根据用户ID.查询条件.页号.页长,获取用户登录/注销日志【大厅】
+            </summary>
+            <param name="request">查询条件</param>
+            <param name="recordCount">记录总数</param>
+            <returns>用户登录日志(大厅)</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+             var request = new UserLogonLogRequest()
+             {
+                 PageIndex = 1,
+                 PageSize = 20,
+                 UserID = 14648,
+                 BeginDate = 20140530,
+                 EndDate = 0
+             };
+             int recordCount = 0;
+            
+             var service = ServiceFactory.Create<UserLogService>();
+             var result = service.QueryUserLogon(request, out recordCount);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             Console.WriteLine("记录数：" + recordCount);
+             if (result.Data != null)
+             {
+                 result.Data.ForEach(item =>
+                 {
+                     Console.WriteLine("操作方式:" + item.OperationID);
+                 });
+             }
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtUser.Service.UserLogService.QueryUserLogonW(CtUser.Service.Request.UserLogonLogRequest,System.Int32@)">
+            <summary>
+            根据用户ID.查询条件.页号.页长,获取用户登录/注销日志【网站】
+            </summary>
+            <param name="request">查询条件</param>
+            <param name="recordCount">记录总数</param>
+            <returns>
+            网站登录日志
+            </returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+             var request = new UserLogonLogRequest()
+             {
+                 PageIndex = 1,
+                 PageSize = 20,
+                 UserID = 14648,
+                 BeginDate = 20140530,
+                 EndDate = 0
+             };
+             int recordCount = 0;
+            
+             var service = ServiceFactory.Create<UserLogService>();
+             var result = service.QueryUserLogonW(request, out recordCount);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             Console.WriteLine("记录数：" + recordCount);
+             if (result.Data != null)
+             {
+                 result.Data.ForEach(item =>
+                 {
+                     Console.WriteLine("登录来源:" + item.LogonFrom);
+                 });
+             }
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="T:CtUser.Service.UserRegService">
+            <summary>
+            用户注册操作接口
+            </summary>
+        </member>
+        <member name="M:CtUser.Service.UserRegService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:CtUser.Service.UserRegService.Register(CtUser.Service.Reg.RegAccount)">
+            <summary>
+            用户注册
+            </summary>
+            <param name="regAccount">
+            帐号类型:<br/>用户名密码注册(<see cref="T:CtUser.Service.Reg.PersonalizedAccount"/>)<br/>,
+            手机号注册(<see cref="T:CtUser.Service.Reg.MobileAccount"/>),<br/>邮箱注册(<see cref="T:CtUser.Service.Reg.EmailAccount"/>)<br/>,
+            第三方帐号注册(<see cref="T:CtUser.Service.Reg.ThirdAccount"/>),<br/>移动设备一键注册(<see cref="T:CtUser.Service.Reg.MobileClientAccount"/>)</param>
+            <returns>注册结果信息</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+             MobileClientAccount account = new MobileClientAccount()
+             {
+                 UserType = UserType.NORMAL,
+                 OSName = OSNameEnum.ANDROID,
+                 RegFrom = 31,
+                 RegIP = "127.0.0.1",
+                 Sex = GenderType.FEMALE,
+                 MobileHardInfo = new MobileOneKeyHardInfo()
+                 {
+                     ImeiID = "1bcas",
+                     ImsiID = "8xjms",
+                     SimSerialNO = "",
+                     SystemID = "123",
+                     WifiID = "00-00-00-00-00-00"
+                 }
+             };
+            
+             var service = ServiceFactory.Create<UserRegService>();
+             var result = service.Register(account);
+             Assert.IsTrue(result.Successed);
+             Assert.IsNotNull(result.Data);
+             Console.WriteLine(result.Data.UserID);
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtUser.Service.UserRegService.RegisterFast(System.String,System.String,System.String,System.Int32,System.String@)">
+            <summary>
+            用户快速注册，为兼容老的接口而存在 
+            </summary>
+            <param name="msg">返回消息</param>
+            <param name="password">注册密码</param>
+            <param name="regFrom">注册来源</param>
+            <param name="regIP">注册IP</param>
+            <param name="username">用户名</param>
+            <returns>用户ID,大于0则注册成功，否则注册失败</returns>
+        </member>
+        <member name="M:CtUser.Service.UserRegService.SendRegSms(System.String,System.Int32)">
+            <summary>
+            发送注册手机验证短信
+            </summary>
+            <param name="mobile">手机号</param>
+            <param name="regFrom">来源</param>
+            <returns>是否操作成功</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+             string mobile = "13572468901";
+             int regFrom = 66;
+            
+             var service = ServiceFactory.Create<UserRegService>();
+            
+             var result = service.SendRegSms(mobile, regFrom);
+            
+             if (!result.Successed) {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             if (result.Data) {
+                 Console.WriteLine("发送成功 ");
+             }
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtUser.Service.UserRegService.SendRegEmail(System.String,System.String,System.String)">
+             <summary>
+             发送邮箱注册邮件
+             </summary>
+             <param name="email">邮箱</param>
+             <param name="host">注册客户主机，如:http://user.ct108.com</param>
+             <param name="gourl">跳转地址</param>
+             <returns>操作是否成功</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             string email = "shenjk@ct108.com";
+             string host = "http://user.ct108.com";
+             string gourl = "http://user.ct108.com";
+            
+             var service = ServiceFactory.Create<UserRegService>();
+            
+             var result = service.SendRegEmail(email, host, gourl);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             if (result.Data)
+             {
+                 Console.WriteLine("发送成功 ");
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserRegService.VerifyRegEmail(System.String,System.String)">
+            <summary>
+            验证注册邮箱是否合法
+            </summary>
+            <param name="signDes">DES加密的签名信息</param>
+            <param name="emailDes">DES加密的邮箱信息</param>
+            <returns>邮箱帐号信息</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+             string key="12345678";
+             string signDes = "abc".ToDesEncrypt(key);
+             string emailDes = "shenjk@ct108.com".ToDesEncrypt(key);
+            
+             var service = ServiceFactory.Create<UserRegService>();
+             var result = service.VerifyRegEmail(signDes, emailDes);
+            
+             if (!result.Successed) {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+            
+             if (result.Data == null) {
+                 Console.WriteLine("验证失败");
+             }
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtUser.Service.UserRegService.IsExistMobile(System.String)">
+             <summary>
+             检查手机号是否已存在
+             </summary>
+             <param name="mobile">手机号</param>
+             <returns>是否存在</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             string mobile = "13579246800";
+            
+             var service = ServiceFactory.Create<UserRegService>();
+             var result = service.IsExistMobile(mobile);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+            
+             if (result.Data) {
+                 Console.WriteLine("手机号已存在");
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserRegService.IsExistEmail(System.String)">
+             <summary>
+             检查Email是否已存在
+             </summary>
+             <param name="email">Email</param>
+             <returns>是否存在</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             string email = "shenjk@ct108.com";
+            
+             var service = ServiceFactory.Create<UserRegService>();
+             var result = service.IsExistEmail(email);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+            
+             if (result.Data)
+             {
+                 Console.WriteLine("邮箱已存在");
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserRegService.IsExistUserName(System.String)">
+             <summary>
+             检查用户名是否已存在
+             </summary>
+             <param name="userName">用户名</param>
+             <returns>是否已存在</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             string userName = "shenjk";
+            
+             var service = ServiceFactory.Create<UserRegService>();
+             var result = service.IsExistUserName(userName);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+            
+             if (result.Data)
+             {
+                 Console.WriteLine("用户名已存在");
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserRegService.IsVaildUserName(System.String)">
+            <summary>
+            检测用户名是否合法
+            </summary>
+            <param name="userName">用户名</param>
+            <returns>是否合法</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+             string userName = "shenjk@";
+            
+             var service = ServiceFactory.Create<UserRegService>();
+             var result = service.IsVaildUserName(userName);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+            
+             if (!result.Data)
+             {
+                 Console.WriteLine("用户名不合法");
+             }
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="T:CtUser.Service.UserType">
+            <summary>
+            用户类型
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.NORMAL">
+            <summary>
+            普通用户 0
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.MEMEBER">
+            <summary>
+            会员用户 1
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.OLDMATCH">
+            <summary>
+            旧式比赛用户 2
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.ANONYM">
+            <summary>
+            用昵称代替用户名显示 4
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.DIANXIN">
+            <summary>
+            电信用户，可以进DIANXIN房间 8
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.WANGTONG">
+            <summary>
+            网通用户，可以进WANGTONG房间 16
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.MATCH">
+            <summary>
+            比赛用户 32
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.THIRD">
+            <summary>
+            第三方用户:QQ、新浪微博 64
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.MERCHANT">
+            <summary>
+            同城108商家用户 128
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.MOBILE">
+            <summary>
+            手机端注册用户 256
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.ADMIN">
+            <summary>
+            普通管理员 4096
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.EXPERTACCOUNT">
+            <summary>
+            专家号 512
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.KICKOFF">
+            <summary>
+            可使用踢人功能的管理员
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.MUTEX">
+            <summary>
+            可使用隔离功能的管理员
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.CLEAR">
+            <summary>
+            可使用清除玩家状态的管理员
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.FORBIDROOM">
+            <summary>
+            可使用禁止房间的管理员
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.FORBIDUSER">
+            <summary>
+            可使用禁用帐号的管理员
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.UNFORBIDUSER">
+            <summary>
+            可使用解禁帐号的管理员
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.UNBIND">
+            <summary>
+            可使用解除绑定的管理员
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.CLEARSCORE">
+            <summary>
+            可使用正分清零的管理员
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.FILTERWORD">
+            <summary>
+            可使用过滤词管理的管理员
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.SAVEDEPOSIT">
+            <summary>
+            可使用过滤词管理的管理员
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.COFFERTRANSFE">
+            <summary>
+            可使用转帐的管理员
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.ENTERHIDING">
+            <summary>
+            进入房间隐身管理员
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.PROXYIP">
+            <summary>
+            代理IP管理
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.SYSADMIN">
+            <summary>
+            系统管理员
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.UNKOWNTYPE">
+            <summary>
+            该类型未知，但数据库中存在 
+            </summary>
+        </member>
+        <member name="F:CtUser.Service.UserType.FORBIDUSER2">
+            <summary>
+            可使用禁用帐号的管理员
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.UserService">
+            <summary>
+            用户操作公共接口
+            </summary>
+            <remarks>
+            提供公共功能的接口，比如获取用户信息，登录等操作<br/>
+            示例
+            <code lang="c#">
+            <![CDATA[
+            var service=ServiceFactory.Create<UserService>();
+            ]]>
+            </code>
+            </remarks>
+        </member>
+        <member name="M:CtUser.Service.UserService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetThirdUserAccount2(System.Int32,System.String)">
+             <summary>
+             获取第三方登录用户信息
+             </summary>
+             <param name="userID">用户ID</param>
+             <param name="keyToken">验证令牌(可为空)</param>
+             <returns>返回第三方用户登录信息</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             int userID = 222;
+             string keyToken = string.Empty;
+            
+             var service = ServiceFactory.Create<UserService>();
+            
+             var result = service.GetThirdUserAccount2(userID, keyToken);
+            
+               if (!result.Successed) {
+            
+                  Console.WriteLine("错误消息："+result.Message);
+                  return;
+             }
+             if (result.Data == null)
+             {
+                 Console.WriteLine("不是第三方用户");
+             }
+             else {
+                 Console.WriteLine("第三方用户类型："+result.Data.UserType);
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetFriends(System.Int32)">
+             <summary>
+             获取好友信息
+             </summary>
+             <param name="userID">用户ID</param>
+             <returns>好友列表</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+              int userID =  16512;
+            
+             var service = ServiceFactory.Create<UserService>();
+             var result = service.GetFriends(userID);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+            
+             if (result.Data != null) {
+                 Console.WriteLine("好友数："+result.Data.Count);
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetGameUserInfo(System.Int32)">
+             <summary>
+             获取用户游戏相关信息
+             </summary>
+             <param name="userID">用户ID</param>
+             <returns>用户的游戏相关信息</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+              int userID = 16512;
+            
+             var service = ServiceFactory.Create<UserService>();
+             var result = service.GetGameUserInfo(userID);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+            
+             if (result.Data != null)
+             {
+                 Console.WriteLine("大厅最后登录日期：" + result.Data.LastLogonDay);
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetMember(System.Int32)">
+             <summary>
+             根据用户ID获取用户会员信息
+             </summary>
+             <param name="userID">用户ID</param>
+             <returns>用户的会员相关信息</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             int userID = 222;// 16512;
+             var service = ServiceFactory.Create<UserService>();
+            
+             var result = service.GetMember(userID);
+            
+             Assert.IsTrue(result.Successed);
+            
+             Assert.IsNotNull(result.Data);
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetMobileInfo(System.Int32)">
+            <summary>
+            根据用户ID获取手机游戏用户手机硬件信息
+            </summary>
+            <param name="userID">用户ID</param>
+            <returns>手机游戏硬件信息</returns>
+        </member>
+        <member name="M:CtUser.Service.UserService.IsOneKeyRegHardInfo(System.String,CtUser.Service.Entity.MobileOneKeyHardInfo)">
+             <summary>
+             判断当前硬件信息是否匹配注册时留的硬件信息
+             </summary>
+             <param name="userName">用户名</param>
+             <param name="currentHardInfo">当前硬件信息</param>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             string userName = "m020";
+             var currentHardInfo = new MobileOneKeyHardInfo(){
+                   ImeiID = "",
+                   SystemID = "",
+                   WifiID = "",
+                   ImsiID = "",
+                   SimSerialNO = ""
+             };
+             var service = ServiceFactory.Create<UserService>();
+             var result = service.IsOneKeyRegHardInfo(userName,currentHardInfo);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+            
+             Console.WriteLine("当前硬件信息匹配注册时硬件信息验证结果：" + (result.Data ? "是" : "否"));
+             ]]>
+             </code>
+             </example>
+             <returns>true=匹配；</returns>
+        </member>
+        <member name="M:CtUser.Service.UserService.IsOneKeyRegHardInfoByUserID(System.Int32,CtUser.Service.Entity.MobileOneKeyHardInfo)">
+             <summary>
+             判断当前硬件信息是否匹配注册时留的硬件信息
+             </summary>
+             <param name="userID">用户ID</param>
+             <param name="currentHardInfo">当前硬件信息</param>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             string userID = 12345;
+             var currentHardInfo = new MobileOneKeyHardInfo(){
+                   ImeiID = "",
+                   SystemID = "",
+                   WifiID = "",
+                   ImsiID = "",
+                   SimSerialNO = ""
+             };
+             var service = ServiceFactory.Create<UserService>();
+             var result = service.IsOneKeyRegHardInfo(userName,currentHardInfo);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+            
+             Console.WriteLine("当前硬件信息匹配注册时硬件信息验证结果：" + (result.Data ? "是" : "否"));
+             ]]>
+             </code>
+             </example>
+             <returns>true=匹配；</returns>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetUserByName(System.String)">
+             <summary>
+             根据用户名获取用户信息,类似功能方法：
+             <see cref="M:CtUser.Service.UserService.GetUserByLogonName(System.String)"/>
+             </summary>
+             <param name="name">用户名，不需要进行Base64编码</param>
+             <returns>用户相关信息</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+              string userName = "shenjk";
+            
+             var service = ServiceFactory.Create<UserService>();
+             var result = service.GetUserByName(userName);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             if (result.Data != null)
+             {
+                 Console.WriteLine("用户ID:" + result.Data.ID);
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetUserClothing(System.Int32)">
+             <summary>
+             根据用户ID获取用户的服装信息
+             </summary>
+             <param name="userID">用户ID</param>
+             <returns>服装信息</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             int userID = 222;
+             var service = ServiceFactory.Create<UserService>();
+             var result = service.GetUserClothing(userID);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             if (result.Data != null)
+             {
+                 Console.WriteLine("服装数量：" + result.Data.Count);
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetUserInfo(System.Int32)">
+             <summary>
+             根据用户ID获取用户信息
+             </summary>
+             <param name="userID">用户ID</param>
+             <returns>用户信息</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             int userID = 222;
+            
+             var service = ServiceFactory.Create<UserService>();
+             var result = service.GetUserInfo(userID);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             if (result.Data != null)
+             {
+                 Console.WriteLine("用户名：" + result.Data.Name);
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetUserInfoFromDB(System.Int32)">
+            <summary>
+            获取最新的用户信息
+            </summary>
+            <param name="userID">用户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetUserInfos(System.Int32[])">
+            <summary>
+            根据用户名集合获取用户信息
+            </summary>
+            <param name="userIDs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetUserInfosFromDB(System.Int32[],System.String,System.String)">
+            <summary>
+            根据用户名集合获取用户信息
+            </summary>
+            <param name="userIDs">用户ID数组</param>
+            <param name="fields">只特定查看这些用户字段，默认全部</param>
+            <param name="extFields">只特定查看这些用户扩展字段，默认不查看</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetUserByLogonName(System.String)">
+             <summary>
+             根据登录名获取用户信息（用户名、手机号、邮箱地址)<br/>
+             类似功能查看：<see cref="M:CtUser.Service.UserService.GetUserByName(System.String)"/>
+             </summary>
+             <param name="logonName">登录名（用户名、手机号、邮箱地址)</param>
+             <returns>用户信息</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             var service = ServiceFactory.Create<UserService>();
+            
+             string userName = "shenjk";
+             var result = service.GetUserByLogonName(userName);
+            
+             string mobile = "13813813813";
+             result = service.GetUserByLogonName(mobile);
+            
+             string email = "shenjk@ct108.com";
+             result = service.GetUserByLogonName(email);
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetUserLastLogonGroup(System.Int32)">
+             <summary>
+             获得用户最后登录的大厅组ID
+             </summary>
+             <param name="userID">用户ID</param>
+             <returns>最后登录的大厅组ID</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+              int userID = 222;
+            
+             var service = ServiceFactory.Create<UserService>();
+             var result = service.GetUserLastLogonGroup(userID);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             if (result.Data > 0)
+             {
+                 Console.WriteLine("最后登录大厅组：" + result.Data);
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetUserLastLogonInfo(System.Int32)">
+             <summary>
+             获取用户最后登录信息
+             </summary>
+             <param name="userID">用户ID</param>
+             <returns>用户最后登录信息</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+               int userID = 14648;
+            
+             var service = ServiceFactory.Create<UserService>();
+             var result = service.GetUserLastLogonInfo(userID);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             if (result.Data != null) { 
+                Console.WriteLine("最后登录时间："+result.Data.LastLogonDate.ToString("####-##-##")+" "
+                    +result.Data.LastLogonTime.ToString().PadLeft(6,'0').Insert(2,":").Insert(5,":"));
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetLastLogonHallInfo(System.Int32)">
+             <summary>
+             获取用户最后登录大厅信息
+             </summary>
+             <param name="userID">用户ID</param>
+             <returns>用户最后登录大厅信息</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+               int userID = 14648;
+            
+             var service = ServiceFactory.Create<UserService>();
+             var result = service.GetLastLogonHallInfo(userID);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             if (result.Data != null) { 
+                Console.WriteLine("最后登录时间："+result.Data.LogonDate.ToString("####-##-##")+" "
+                    +result.Data.LogonTimes.ToString().PadLeft(6,'0').Insert(2,":").Insert(5,":"));
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetVerifyFlags(System.Int32)">
+             <summary>
+             根据用户ID获取用户的校验信息
+             </summary>
+             <param name="userID">用户ID</param>
+             <returns>用户校验信息，是否绑定了手机，是否绑定邮箱等</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             int userID = 14648;
+            
+             var service = ServiceFactory.Create<UserService>();
+             var result = service.GetVerifyFlags(userID);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             if (result.Data != null) {
+                 Console.WriteLine("绑定邮箱是否通过验证："+(result.Data.IsVerifiedEmail?"是":"否"));
+                 Console.WriteLine("绑定手机是否通过验证：" + (result.Data.IsVerifiedMobile ? "是" : "否"));
+                 Console.WriteLine("实名认证(单面)是否通过验证：" + (result.Data.IsVerifiedIDCard ? "是" : "否"));
+                 Console.WriteLine("实名认证(双面)是否通过验证：" + (result.Data.IsVerifiedIDCard2 ? "是" : "否"));
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.HasSecurePwd(System.Int32)">
+             <summary>
+             判断用户是否设置了保护密码
+             </summary>
+             <param name="userID">用户ID</param>
+             <returns>是否设置了保护密码</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+               int userID = 14648;
+            
+             var service = ServiceFactory.Create<UserService>();
+             var result = service.HasSecurePwd(userID);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+            
+             Console.WriteLine("是否设置了保护密码：" + (result.Data ? "是" : "否"));
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.IsUserBound(System.Int32)">
+             <summary>
+             判断用户是否绑定了电脑硬件信息
+             </summary>
+             <param name="userID">用户ID</param>
+             <returns>是否绑定了大厅</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             int userID = 14648;
+            
+             var service = ServiceFactory.Create<UserService>();
+             var result = service.IsUserBound(userID);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+            
+             Console.WriteLine("是否绑定了大厅：" + (result.Data ? "是" : "否"));
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.SendUserMsg(System.Int32,System.String)">
+             <summary>
+             向会员发送系统消息
+             </summary>
+             <param name="userID">用户ID</param>
+             <param name="msgtext">会员消息内容</param>
+             <returns>操作是否成功</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             int userID = 14648;
+             string message = "Hello World";
+            
+             var service = ServiceFactory.Create<UserService>();
+             var result = service.SendUserMsg(userID, message);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             if (result.Data) {
+                 Console.WriteLine("发送成功");
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.SendMultipleUserMsg(System.Int32[],System.String)">
+            <summary>
+            批量向会员发送系统消息
+            </summary>
+            <param name="userIDs">用户ID数组</param>
+            <param name="msgtext">会员消息内容</param>
+            <returns>操作是否成功</returns>
+        </member>
+        <member name="M:CtUser.Service.UserService.UpdateMemberInfo(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+             <summary>
+             根据用户ID、会员卡相关信息，更新会员信息
+             </summary>
+             <param name="userID">用户ID</param>
+             <param name="memberType">会员类型</param>
+             <param name="memberTerm">会员期限</param>
+             <param name="scoreClear">负分清零次数</param>
+             <param name="scoreJump">积分跃龙门次数</param>
+             <param name="breakOffClear">断线率清零次数</param>
+             <param name="clothesBuy">服装打折</param>
+             <returns>会员结束日期(yyyyMMdd)</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             int userID = 14648;
+              int memberType = 1;
+              int memberTerm = 1;
+              int scoreClear = 0;
+              int scoreJump = 0;
+              int breakOffClear = 0;
+              int clothesBuy = 0;
+            
+              var service = ServiceFactory.Create<UserService>();
+              var result = service.UpdateMemberInfo(userID, memberType, memberTerm, scoreClear, scoreJump, breakOffClear, clothesBuy);
+              if (!result.Successed)
+              {
+                  Console.WriteLine("错误消息：" + result.Message);
+                  return;
+              }
+              if (result.Data > 0)
+              {
+                  Console.WriteLine("更新成功");
+              }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.UpdateSex(System.Int32,CtUser.Service.GenderType)">
+             <summary>
+             修改用户性别
+             </summary>
+             <param name="userID">用户ID</param>
+             <param name="sex">更新性别</param>
+             <returns>是否操作成功</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             int userID = 14648;
+             GenderType gender = GenderType.MALE;
+            
+             var service = ServiceFactory.Create<UserService>();
+             var result = service.UpdateSex(userID, gender);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+            
+             if (result.Data) {
+                 Console.WriteLine("更新成功");
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.UserLogon(System.String,System.String,System.Int32,System.String)">
+            <summary>
+            用户登录
+            </summary>
+            <param name="username">用户名</param>
+            <param name="password">登录密码</param>
+            <param name="loginAppID">登录应用ID</param>
+            <param name="userIP">用户IP</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.UserService.UserLogon(CtUser.Service.Logon.UserLogonInfo)">
+             <summary>
+             用户登录
+             </summary>
+             <param name="userLogonInfo">帐号类型信息对象</param>
+             <returns>用户登录结果信息</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             var logonInfo = new UserNameAndPassword();
+             logonInfo.AppID = 66;
+             logonInfo.IP = "127.0.0.1";
+             logonInfo.UserName = "shenjk";
+             logonInfo.Password = "123456";
+            
+             var service = ServiceFactory.Create<UserService>();
+            
+             var result = service.UserLogon(logonInfo);
+             if (result.UserID > 0)
+             {
+                 Console.WriteLine("登录成功");
+                 return;
+             }
+             else
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.ValidateUser(CtUser.Service.Logon.UserLogonInfo)">
+             <summary>
+             验证用户名密码是否匹配
+             </summary>
+             <param name="userLogonInfo">帐号类型对象</param>
+             <returns>用户ID(>0表示验证通过，=0 或负数表示验证失败)</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             var logonInfo = new UserNameAndPassword();
+             logonInfo.AppID = 66;
+             logonInfo.IP = "127.0.0.1";
+             logonInfo.UserName = "shenjk";
+             logonInfo.Password = "123456";
+            
+             var service = ServiceFactory.Create<UserService>();
+             var result = service.ValidateUser(logonInfo);
+            
+             if (!result.Successed) {
+                 Console.WriteLine("错误消息：" + result.Message);
+             }
+            
+             if (result.Data > 0) {
+                 Console.WriteLine("匹配成功");
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.VerifySecurePwd(System.Int32,System.String)">
+             <summary>
+             验证安全密码是否正确,验证成功时返回用户ID,否则返回-1/0
+             </summary>
+             <param name="userID">用户ID</param>
+             <param name="password">安全密码</param>
+             <returns>验证成功时返回用户ID,0表示为设置保护密码，-1验证失败</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             int userID = 14648;
+             string securePwd = "13572468";
+            
+             var service = ServiceFactory.Create<UserService>();
+             var result = service.VerifySecurePwd(userID, securePwd);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+             }
+            
+             if (result.Data > 0)
+             {
+                 Console.WriteLine("匹配成功");
+             }
+            
+             if (result.Data == 0)
+             {
+                 Console.WriteLine("未设置保护密码");
+             }
+            
+             if (result.Data < 0)
+             {
+                 Console.WriteLine("匹配失败");
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetUserIDByLogonMobile(System.String)">
+             <summary>
+             根据登录手机号获取用户ID
+             </summary>
+             <param name="mobile">手机号</param>
+             <returns>用户ID</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+              string mobile = "13131313131";
+             var service = ServiceFactory.Create<UserService>();
+             var result = service.GetUserIDByLogonMobile(mobile);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             if (result.Data > 0)
+             {
+                 Console.WriteLine("用户ID：" + result.Data);
+             }
+             else {
+                 Console.WriteLine("该手机号未注册");
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetUserIDByLogonEmail(System.String)">
+             <summary>
+             根据登录Email获取用户ID
+             </summary>
+             <param name="email">Email</param>
+             <returns>用户ID</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+              string email = "shenjk@ct108.com";
+            
+             var service = ServiceFactory.Create<UserService>();
+             var result = service.GetUserIDByLogonEmail(email);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+             if (result.Data > 0)
+             {
+                 Console.WriteLine("用户ID：" + result.Data);
+             }
+             else
+             {
+                 Console.WriteLine("该邮箱未注册");
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.UpdatePasswordByOneKeyUser(System.String,System.String,System.String,CtUser.Service.Entity.MobileOneKeyHardInfo)">
+             <summary>
+             手机一键注册用户修改密码
+             </summary>
+             <param name="userName">用户名</param>
+             <param name="userIP">用户IP</param>
+             <param name="newPwd">新登录密码</param>
+             <param name="hardInfo">手机硬件信息</param>
+             <returns>修改成功返回用户ID,否则返回0</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             string userName = "shenjk";
+             string userIP = "127.0.0.1";
+             string newPwd = "abc2hxms";
+             MobileOneKeyHardInfo hardInfo = new MobileOneKeyHardInfo()
+             {
+                 WifiID = "00-aa-cc-bb-cc-dd"
+             };
+            
+             var service = ServiceFactory.Create<UserService>();
+             var result = service.UpdatePasswordByOneKeyUser(userName, userIP,newPwd, hardInfo);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+            
+             if (result.Data > 0)
+             {
+                 Console.WriteLine("修改成功");
+             }
+            
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.UpdateClothing(System.Int32,System.Int32)">
+             <summary>
+             更新服装信息
+             </summary>
+             <param name="userID">用户ID</param>
+             <param name="clothingID">服装ID</param>
+             <returns>更新是否成功</returns>
+             <example>
+             <code>
+             <![CDATA[
+             int userid = 1;
+             int clothing = 101;
+             var service = ServiceFactory.Create<UserService>();
+             var result = service.UpdateClothing(userid,clothing);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+            
+             if (result.Data)
+             {
+                 Console.WriteLine("修改成功");
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.UpdateUserName(System.Int32,System.String,System.String)">
+             <summary>
+             修改用户名，同时会修改昵称,仅对原用户名为 ~或@的用户有用
+             </summary>
+             <param name="userID">用户ID</param>
+             <param name="oldUserName">原用户名</param>
+             <param name="newUserName">新用户名</param>
+             <returns>是否更新成功</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+             int userID = 1;
+             string oldUserName = "tcy~23701";
+             string newUserName="shenjkct001";
+             var service = ServiceFactory.Create<UserService>();
+             var result = service.UpdateUserName(userID,oldUserName,newUserName);
+            
+             if (!result.Successed)
+             {
+                 Console.WriteLine("错误消息：" + result.Message);
+                 return;
+             }
+            
+             if (result.Data )
+             {
+                 Console.WriteLine("修改成功");
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtUser.Service.UserService.UpdateUserNameOnly(System.Int32,System.String)">
+            <summary>
+            仅仅修改用户名，不同时修改昵称
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="newUserName">新用户名</param>
+            <returns>是否更新成功</returns>
+        </member>
+        <member name="M:CtUser.Service.UserService.RemoveUserCache(System.Int32)">
+            <summary>
+            清除用户缓存信息
+            </summary>
+            <param name="userID">用户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.UserService.IsForbid(System.Int32,System.Int32)">
+            <summary>
+            判断用户是否处于禁用状态
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="platformID">平台ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.UserService.ForbidUser(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            禁用用户，只能供平台ID为：30,31,66,168,108,120的平台使用
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="forbidMinutes">禁用时长(分钟),0为永久禁用</param>
+            <param name="adminID">操作员ID</param>
+            <param name="remark">备注信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.UserService.UnForbidUser(System.Int32,System.Int32,System.String)">
+            <summary>
+            解禁用户,只能供平台ID为：30,31,66,168,108,120的平台使用
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="adminID">管理员ID</param>
+            <param name="remark">备注信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.UserService.CreateSessionToken(System.Int32,System.Int32)">
+            <summary>
+            创建用于服务端验证的会话令牌
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="appID">应用ID</param>
+            <returns>会话令牌</returns>
+        </member>
+        <member name="M:CtUser.Service.UserService.VerifySessionToken(System.Int32,System.Int32,System.String)">
+            <summary>
+            验证会话令牌是否正确且有效
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="appID">应用ID</param>
+            <param name="token">会话令牌</param>
+            <returns>true:有效且正确</returns>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetThirdUserTypeConfig">
+            <summary>
+            获取所有第三方用户类型配置
+            </summary>
+        </member>
+        <member name="M:CtUser.Service.UserService.SendLoginSms(System.String,System.Int32)">
+            <summary>
+            手机登录发送手机验证码
+            </summary>
+            <param name="mobile">手机号</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetLoginTokenInfoByQRCode(System.Int32,System.String,CtUser.Service.Entity.MobileOneKeyHardInfo)">
+            <summary>
+            通过二维码获取登录令牌（从pc端登录到移动端时）
+            </summary>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetUserState(System.Int32,CtUser.Service.StateItemEnum[])">
+            <summary>
+            根据用户ID,获取用户状态相关信息
+            </summary>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetUserIDByOAuthInfo(CtUser.Service.Entity.ThirdOAuthInfo2)">
+            <summary>
+            获取用户ID通过第三方授权信息
+            </summary>
+            <param name="thirdOAuthInfo">第三方授权信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.UserService.GetUserIDByNickName(System.String)">
+            <summary>
+            获取用户ID通过昵称
+            </summary>
+            <param name="nickName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CtUser.Service.UserService.UpdateNickName(System.Int32,System.String)">
+            <summary>
+            更改昵称
+            </summary>
+            <param name="userID">用户ID</param>
+            <param name="newNickName">新的昵称</param>
+            <returns>是否更新成功</returns>
+        </member>
+        <member name="T:CtUser.Service.VerifyBind.VerfiyBindIDCardTrueName">
+            <summary>
+            实名认证验证信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.VerifyBind.VerfiyBindIDCardTrueName.IDCard">
+            <summary>
+            身份证号
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.VerifyBind.VerfiyBindIDCardTrueName.TrueName">
+            <summary>
+            真实姓名
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.VerifyBind.VerfiyBindMobile">
+            <summary>
+            验证手机
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.VerifyBind.VerfiyBindMobile.Mobile">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.VerifyBind.VerfiyBindMobile.VerifyCodeType">
+            <summary>
+            验证操作类型
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.VerifyBind.VerfiyBindMobile.VerifyCode">
+            <summary>
+            手机收到的验证码
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.VerifyBind.VerifyBindEmail">
+            <summary>
+            验证Email信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.VerifyBind.VerifyBindEmail.Email">
+            <summary>
+            Email地址
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.VerifyBind.VerifyBindEmail.VerifyCodeType">
+            <summary>
+            需要进行的验证操作类型
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.VerifyBind.VerifyBindEmail.VerifyCode">
+            <summary>
+            Email收到的验证码
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.VerifyBind.VerifyBindInfo">
+            <summary>
+            验证(绑定)信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.VerifyBind.VerifyBindInfo.UserID">
+            <summary>
+            待验证的用户ID
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.VerifyBind.VerifyBindInfo.UserIP">
+            <summary>
+            用户操作客户端IP
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.VerifyBind.VerifyBindLogonPassword">
+            <summary>
+            验证登录密码
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.VerifyBind.VerifyBindLogonPassword.Password">
+            <summary>
+            登录密码
+            </summary>
+        </member>
+        <member name="T:CtUser.Service.VerifyBind.VerifyBindSecurePwd">
+            <summary>
+            验证安全密码信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.VerifyBind.VerifyBindSecurePwd.SecurePwd">
+            <summary>
+            安全密码
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.VerifyBind.VerifyBindSecurePwd.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.VerifyBind.VerifyMobileOneKey.HardInfo">
+            <summary>
+            手机硬件信息
+            </summary>
+        </member>
+        <member name="P:CtUser.Service.VerifyBind.VerifyMobileOneKey.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+    </members>
+</doc>
